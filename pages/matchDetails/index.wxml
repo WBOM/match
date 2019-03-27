@@ -1,0 +1,64 @@
+<!--pages/matchCetails/index.wxml-->
+<view class='container'>
+  <!--标题-->
+  <view class='title'>胜利特杯乒乓球3人团体赛比赛</view>
+  <!--选项-->
+  <view class='option'>
+    <view>
+      <text>报名</text>
+    </view>
+    <view>
+       <text bindtap='goConductMatch'>进行比赛</text>
+    </view>
+    <view>
+       <text bindtap='goMatchSponsor'>赞助</text>
+    </view>
+    <view>
+       <text bindtap='goMicroMatchPoint'>赛点主页</text>
+    </view>
+  </view>
+  <!--介绍-->
+  <view class='introduction'>
+    <view>
+        <text>一、 比赛时间：2019年2月1日（周五）晚上19：30
+        二、比赛地点：盐田乒乓球馆；
+        报名电话：13424170751（微信同号）小江 0755-25
+        857872（地铁9号线泥岗站C2出口，公交泥岗村、泥
+        岗村牌坊、红岗西村站）。
+
+        三、比赛项目：单打（同级别男让女2分（甲B以下）
+        小级循环出线后淘汰制；决赛双方可协商打5局3胜
+        它3局2胜制）；
+
+        四、录取名次与奖励：奖励前九名；第一名150现金
+        卡、第二名100元现金卡、第三名60元现金卡、第四
+        名40元现金卡、第五名30元现金卡、第六名20元现金
+        卡、并列第七和第九名全棉毛巾一条；
+        </text>
+    </view>
+    <view class='button'>
+      <button>已报名3/60</button>
+      <button bindtap='signUp'>报名</button>
+    </view>
+  </view>
+  <!--报名情况-->
+  <view class='personnel-box'>
+    <text>已报名人数3/60</text>
+    <view class='personnel-list'>
+      <view class='personnel'>
+        <image src='../image/index.png' mode="scaleToFill" lazy-load="true"></image>
+        <text>1211111212</text>
+      </view>
+      <view class='personnel'>
+        <image src='../image/index.png' mode="scaleToFill" lazy-load="true"></image>
+        <text>111</text>
+      </view>
+      <view class='personnel'>
+        <image src='../image/index.png' mode="scaleToFill" lazy-load="true"></image>
+        <text>12122121212</text>
+      </view> 
+    </view>
+  </view>
+  <!--底部申请裁判按钮-->
+  <button class='application' bindtap='goRefereeApplication'>申请裁判</button>
+</view>

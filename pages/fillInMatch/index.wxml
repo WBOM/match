@@ -1,0 +1,54 @@
+<!--pages/fillInMatch/index.wxml-->
+<view class='container'>
+  <view class='match-information'>
+      <text>组别：挑战组22公里（含参赛服）</text>
+      <text>时间：2019-03-17</text>
+      <text>报名费：￥ 198.0</text>
+  </view>
+  <view class='match-claim'>
+    <text>报名要求</text>
+    <text>年龄要求：限18岁（2001年3月17日前出生）至65
+1954年3月17日后出生）。</text>
+  </view>
+  <view class='entry-information'>
+      <text>参赛者信息</text>
+      <form bindsubmit="formSubmit" bindreset="formReset">
+        <view class="section">
+          <view class="section-title">姓名</view>
+          <input name="name" confirm-type='next' placeholder="请输入姓名" />
+        </view>
+        <view class="section">
+          <view class="section-title">手机号码</view>
+          <input name="phone" type='number' placeholder="请输入手机号码"/>
+        </view>
+        <view class="section">
+          <view class="section-title">比赛项目</view>
+          <picker bindchange="bindCompetitionChange" value="{{index}}" range="{{competitionList}}" name="competition">
+            <view class="picker">
+              {{competitionList[index]}}
+            </view>
+            <i class="triangle"></i>
+          </picker>
+        </view>
+        <view class="section">
+          <view class="section-title">选手等级</view>
+          <picker bindchange="bindLvChange" value="{{lv}}" range="{{lvList}}" name="lv">
+            <view class="picker">
+              {{lvList[lv]}}
+            </view>
+            <i class="triangle"></i>
+          </picker>
+        </view>
+        <view class="section">
+          <view class="section-title">紧急联系人</view>
+          <input name="emergency" type='number' placeholder="请输入紧急联系人"/>
+        </view>
+        <view class="section">
+          <view class="section-title">队名</view>
+          <input name="teamname" placeholder="请输入队名"/>
+        </view>
+        <button form-type='submit'>提交</button>
+        <button form-type="reset">重置</button>
+      </form>
+  </view>
+</view>

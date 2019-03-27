@@ -1,0 +1,88 @@
+<!--pages/matchList/index.wxml-->
+<view class='container' class="{{locking?'off':''}}">
+  <view class='head'>
+    <!--搜索框-->
+    <view class='search-box'>
+      <icon size="41rpx" type='search'></icon>
+      <input placeholder="搜索比赛/地区" confirm-type="search"></input>
+    </view>
+    <!--赛事分类-->
+    <view class='sort-title'>
+      <view class='sort-title-box' name="class" bindtap='classShow'>
+        <text>分类</text>
+        <i class="triangle"></i>
+      </view>
+      <view class='sort-title-box'>
+        <text>日期</text>
+        <i class="triangle"></i>
+        </view>
+      <view class='sort-title-box'>
+        <text>地区</text>
+        <i class="triangle"></i>
+      </view>
+      <view class='sort-title-box'>
+        <text>状态</text>
+        <i class="triangle"></i>
+      </view>
+      <view class='sort-title-box'>
+        <text>筛选</text>
+        <i class="triangle"></i>
+      </view>
+    </view>
+  </view>
+  <!--下拉显示-->
+  <view class="show-box {{box?'show':'hide'}}">
+    <text>111</text>
+    <text>1121</text>
+    <text>111</text>
+  </view>
+  <view class='cover1' wx:if="{{box}}"  bindtap='hideModal' catchtouchmove="move"></view>
+  <view class='main'>
+    <view class='main-box'>
+      <image src='../image/match-list-1.png' mode='scaleToFill' lazy-load="true" bindtap='goMatchDetails'></image>
+      <view class='main-box-content'>
+        <text class='title' bindtap='goMatchDetails'>2019中国牡丹之都荷泽国际马拉松2019中国牡丹之都荷泽国际马拉松</text>
+        <text class='time' bindtap='goMatchDetails'>2019-04-07</text>
+        <text class='place' bindtap='goMatchDetails'>山东省  荷泽市</text>
+        <view class='main-box-content-bottom'>
+          <!--费用-->
+          <view class='cost'>
+            报名费:
+            <text>12121元</text>
+          </view>
+          <!--状态-->
+          <view class='state'>
+            <!--二者只能有一-->
+            <text wx:if="{{selectEvent}}">报名中...</text>
+            <button wx:if="{{!selectEvent}}" bindtap='selectEvent'>一键报名</button>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='main-box'>1</view>
+    <view class='main-box'>1</view>
+    <view class='main-box'>1</view>
+    <view class='main-box'>1</view>
+    <view class='main-box'>1</view>
+    <view class='main-box'>1</view>
+  </view>
+  <view class='release'>发布</view>
+  <!--报名选项卡-->
+  <view class='cover' wx:if="{{selectEvent}}"  bindtap='hideModal' catchtouchmove="move"></view>
+  <view class='select' wx:if="{{selectEvent}}" animation='{{animationData}}'>
+  <icon type="clear" size="45rpx" bindtap='hideModal' />
+  <scroll-view class="selectList" scroll-y="true">
+    <checkbox-group>
+      <label wx:for="{{selectLists}}" wx:for-item="select" data-index="{{index}}" bindtap="selectList">
+        <checkbox value="{{select.name}}" checked="{{select.selected}}"></checkbox>
+        <text class='selectText'>{{select.value}}</text>
+        <text class='selectPrice'>￥{{select.price}}</text>
+      </label>
+    </checkbox-group>
+  </scroll-view>
+  <view class='totalPrice'>
+    <text>￥{{totalPrice}}</text>
+    <button bindtap='signUp'>报名</button>
+  </view>
+  </view>
+</view>

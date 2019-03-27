@@ -1,0 +1,61 @@
+/* pages/payment/index.wxss */
+.container{
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  font-size: 0.88rem;
+  color: #101010;
+}
+.amount-box{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  border-bottom: 0.06px solid rgba(187, 187, 187, 1);
+}
+.order-amount{
+  height: 4rem;
+  line-height: 4rem;
+}
+.amount{
+  font-size: 1rem;
+  color: #E51C23;
+}
+/************************/
+.order-information{
+  display: flex;
+  flex-flow: column nowrap;
+  margin-top: 1rem;
+}
+.order-information view{
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+/******************************/
+.radio-group{
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+}
+.radio-group label{
+  margin: 1rem 0;
+}
+/****************************/
+.pay{
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 3.13rem;
+  line-height: 3.13rem;
+  border-radius: 0.25rem;
+  background: #E51C23;
+  color: #ffffff;
+}

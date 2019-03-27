@@ -1,0 +1,25 @@
+<!--pages/matchClass/index.wxml-->
+<view class='container'>
+  <!--列表-->
+  <view class='match-menu'>
+    <view class='match-menu-list'>
+      <text class='on'>推荐分类</text>
+      <text>乒乓球</text>
+      <text>羽毛球</text>
+      <text>网球</text>
+    </view>
+  </view>
+  <!--内容-->
+  <view class='match-list'>
+    <view class='match-list-box'>
+      <image src='../image/index.png' mode="scaleToFill" lazy-load="true"></image>
+      <text>2019中国牡丹之都菏泽职业篮球联赛即将开赛</text>
+    </view>
+    <view class='match-list-box'></view>
+    <view class='match-list-box'>12121</view>
+    <view class='match-list-box'>12121</view>
+    <view class='match-list-box'>12121</view>
+    <view class='match-list-box'>12121</view>
+    <view class='match-list-box'>12121</view>
+  </view>
+</view>

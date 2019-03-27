@@ -1,0 +1,325 @@
+/* pages/matchList/index.wxss */
+.container{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #F9F9F9;
+}
+.off{
+  overflow: hidden;
+}
+.head{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+  background: #ffffff;
+}
+/***********************搜索框***************************/
+.search-box{
+  margin: 0.8rem;
+  height: 1.3rem;
+  line-height: 1.3rem;
+  font-size: 0.7rem;
+  border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0rem 0rem 0.13rem 0rem rgba(170, 170, 170, 1);
+  border: 0.06px solid rgba(255, 255, 255, 0);
+}
+.search-box icon{
+  width: 1rem;
+  height: 1rem;
+  margin: 0.1rem 0.3rem;
+  float: left;
+}
+.search-box input{
+  color: #101010;
+}
+/***********************分类排序***************************/
+.sort-title{
+  display: flex;
+  color: #666666;
+}
+.sort-title-box {
+  width: 20%;
+  height: 1.3rem;
+  line-height: 1.3rem;
+  text-align: center;
+  font-size: 0.7rem;
+}
+.triangle{
+  position: relative;
+  left: 0.2rem;
+  top: 0.75rem;
+  height: 0px;
+  width: 0px;
+  border-left: 0.25rem solid transparent;
+  border-right: 0.25rem solid transparent;
+  border-top: 0.5rem solid #666666;
+}
+/***********************下拉显示***************************/
+.show-box{
+  position: fixed;
+  top: 4.3rem;
+  left: 0;
+  padding:0.3rem;
+  width: 100%;
+  font-size: 0.8rem;
+  background: #FFFFFF;
+  z-index: 5;
+}
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
+.show-box text{
+  display:block;
+  height: 1.5rem;
+  border-bottom: 0.06rem #bbbbbb solid;
+  line-height: 1.5rem;
+}
+.cover1{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+/***********************显示列表***************************/
+.main{
+  display: flex;
+  flex-flow:column wrap;
+  background: #F9F9F9;
+  width: 100%;
+  margin-top: 4.7rem;
+}
+.main-box{
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  height: 6.78rem;
+  border-radius: 0.2rem;
+  overflow: hidden;
+  background: #FFFFFF;
+}
+.main-box image{
+  display: flex;
+  width: 8rem;
+  height: 5rem;
+  margin: 1rem;
+}
+.main-box-content{
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 1rem 0.3rem 1rem;
+}
+.title{
+  width: 100%;
+  height:1rem;
+  line-height: 1rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:1;
+  text-overflow:ellipsis;
+  font-size: 0.78rem;
+  color: #101010;
+}
+.time{
+  margin-top: 0.4rem;
+  font-size: 0.67rem;
+  color: #666666;
+}
+.place{
+  margin-top: 0.4rem;
+  font-size: 0.67rem;
+  color: #666666;
+}
+.main-box-content-bottom{
+  margin-top: 0.4rem;
+  height: 1rem;
+  line-height: 1rem;
+}
+.cost{
+  display: block;
+  float: left;
+  color: #666666;
+  font-size: 0.67rem;
+}
+.cost text{
+  color: #E51C23;
+  font-size: 0.6rem;
+}
+.state{
+  display: block;
+  margin-right: 1rem;
+  float: right;
+  font-size: 0.56rem;
+}
+.state text{
+  display: block;
+  margin-right: 0.3rem;
+  color: #E51C23;
+  font-size: 0.56rem;
+}
+.state button{
+  display: block;
+  border-radius: 1.11rem;
+  width: 3.2rem;
+  height: 1.3rem;
+  margin: 0;
+  padding: 0;
+  line-height: 1.3rem;
+  font-size: 0.56rem;
+  background: #E51C23;
+  color: #ffffff;
+}
+/*****************************固定发布按钮*****************************/
+.release{
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content:center;
+  right: 1rem;
+  bottom: 3rem;
+  width: 2.67rem;
+  height: 2.67rem;
+  background: #E51C23;
+  border-radius: 50%;
+  font-size: 0.78rem;
+  color: #ffffff;
+}
+/*****************************选择赛事*****************************/
+/*遮盖*/
+.cover{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 4;
+}
+.select{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 14.83rem;
+  background: #ffffff;
+  border-radius: 0.56rem 0.56rem 0 0;
+  z-index: 5;
+}
+.select icon{
+  display: flex;
+  position: relative;
+  right: 1rem;
+  top: 0.5rem;
+  float: right;
+}
+.selectList{
+  display: flex;
+  width: 100%;
+  padding: 0 0.5rem;
+  flex-flow: column nowrap;
+  margin-top: 2rem;
+  overflow:hidden;
+  height:9rem;
+  font-size: 0.78rem;
+  color: #E51C23;
+}
+.selectList checkbox-group label{
+  display: flex;
+  margin: 0.7rem 1rem 0.7rem 0.5rem;
+}
+.selectText{
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.selectPrice{
+  display: flex;
+  align-items: center;
+  width: 3rem;
+}
+.totalPrice{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+  height: 2.17rem;
+  line-height: 2.17rem;
+}
+.totalPrice text{
+  font-size: 1rem;
+  display: flex;
+}
+.totalPrice button{
+  width: 4.83rem;
+  height: 1.89rem;
+  line-height: 1.89rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 1rem;
+  color: #FFFFFF;
+  background: #E51C23;
+  font-size: 0.78rem;
+  border-radius: 0.83rem;
+}
+/* 未选中的 背景样式 */
+checkbox .wx-checkbox-input{
+   border-radius: 50%;/* 圆角 */
+   width: 1rem; /* 背景的宽 */
+   height: 1rem; /* 背景的高 */
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+   border: 1px #E51C23 solid;
+   background: #E51C23;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+   border-radius: 50%;/* 圆角 */
+   width: 0.8rem;/* 选中后对勾大小，不要超过背景的尺寸 */
+   height: 0.8rem;/* 选中后对勾大小，不要超过背景的尺寸 */
+   line-height: 0.8rem;
+   text-align: center;
+   font-size:0.8rem; /* 对勾大小 30rpx */
+   color:#fff; /* 对勾颜色 白色 */
+   background: transparent;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+}
+
+/***********************自定义滚动条******************************/
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+width: 0.2rem;
+height: 1rem;
+background-color: #ffffff;
+/*color: transparent;*/
+}
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+-webkit-box-shadow: inset 0 0 0.2rem rgba(0,0,0,0.1);
+border-radius: 0.2rem;
+background-color: #ffffff;
+}
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 0.2rem rgba(0,0,0,.1);
+background-color: rgba(0,0,0,.1);
+}

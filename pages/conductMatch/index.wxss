@@ -1,0 +1,7 @@
+.container{
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  font-size: 0.88rem;
+  color: #101010;
+}

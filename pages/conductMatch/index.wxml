@@ -1,0 +1,9 @@
+<view class='container'>
+  <view>
+    <text>总参与人数：10人</text>
+    <text>A组 （共3组）</text>
+    <text>出线人数：4</text>
+    <text>罗湖体育馆</text>
+  </view>
+  <view class='time'>1212</view>
+</view>
