@@ -1,0 +1,72 @@
+/* pages/refereeApplication/index.wxss */
+.container{
+  margin: 0;
+  padding: 0;
+  background: #F4F8FB;
+  color: #101010;
+}
+.container form{
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  margin-top: 3rem;
+  background: #F4F8FB;
+}
+.section{
+  margin: 2rem 2rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+}
+.section view{
+  width: 20%;
+}
+.section input{
+  display: flex;
+  margin-left: 0.5rem;
+  width: 80%;
+  border-bottom: 0.06rem #BBBBBB solid;
+  font-size: 0.88rem;
+}
+/******************验证码********************/
+.verificationCode{
+  position: absolute;
+  display: block;
+  margin-top: -0.5rem;
+  font-size: 0.78rem;
+  right: 2rem;
+  width: 5.75rem;
+  height: 2rem;
+  border: 0.06rem #BBBBBB solid;
+  border-radius: 1.56rem;
+}
+/***********提交按钮**************/
+.buttom{
+  width: 100%;
+  height: 3.13rem;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+}
+.submit{
+  display: flex;
+  width: 45%;
+  border-radius: 0.25rem;
+  background: #E51C23;
+  color: #FFFFFF;
+  justify-content:center;
+}
+.reset{
+  display: flex;
+  width: 45%;
+  border-radius: 0.25rem;
+  background: #FFFFFF;
+  color: #9e9e9e;
+  justify-content:center;
+}

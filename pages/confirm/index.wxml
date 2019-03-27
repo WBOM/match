@@ -1,0 +1,28 @@
+<!--pages/confirm/index.wxml-->
+<view class='container'>
+  <view class='match-information'>
+    <text>2019 吴中四季越野春季赛--江湖梦·诗121212212</text>
+    <text>2019-03-17</text>
+  </view>
+  <view class='personal-information'>
+    <view>
+      <text>参赛者</text>
+      <text class='edit'>编辑</text>
+    </view>
+    <text>姓名:{{name}}</text>
+    <text>手机:{{phone}}</text>
+    <text>紧急联系人:{{emergency}}</text>
+  </view>
+  <view class='cost'>
+    <text>报名费：</text>
+    <view>
+      <text class='project'>挑战组22公里（含参赛服）</text>
+      <text class='price'>￥{{198}}</text>
+    </view>
+  </view>
+  <text class='prompt'>报名结果以付款是否成功为准，请尽快完成付款</text>
+  <view class='goPayment'>
+    <view>合计:￥<text>{{198}}</text></view>
+    <button bindtap='goPayment'>去付款</button>
+  </view>
+</view>

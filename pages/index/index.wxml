@@ -1,6 +1,30 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-  1212121
+<view class='container'>
+  <!--顶部图片-->
+  <view class='title-img'>
+    <image src='../image/index.png' mode="scaleToFill" lazy-load="true"></image>
+  </view>
+  <!--比赛分类-->
+  <view class='main'>
+    <view class='main-list'>
+      <view class='main-list-box' wx:for="{{raceType}}"wx:key='index' wx:for-item="type" bindtap='goMatchClass'>
+        <image src='../image/icon-home.png' mode="scaleToFill"></image>
+        <text>{{type}}</text>
+      </view>
+    </view>
+  </view>
+  <!--推荐-->
+  <view class='recommend'>
+    <text class='recommend-title'>推荐</text>
+    <view class='recommend-list'>
+      <view class='recommend-list-box'>
+        <image src='../image/match-list-1.png' mode="scaleToFill" lazy-load="true"></image>
+        <text>哈哈哈哈哈哈哈哈哈哈或或或或或或或或或或或或或或或或或或或或或或或</text>
+      </view>
+      <view class='recommend-list-box'>2</view>
+      <view class='recommend-list-box'>3</view>
+      <view class='recommend-list-box'>4</view>
+      <view class='recommend-list-box'>5</view>
+    </view>
   </view>
 </view>

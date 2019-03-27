@@ -1,25 +1,51 @@
 {
-  "pages":[
+  "pages": [
+    "pages/matchDetails/index",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/matchSponsor/index",
+    "pages/match/index",
+    "pages/matchClass/index",
+    "pages/matchList/index",
+    "pages/my/index",
+    "pages/logs/logs",
+    "pages/fillInMatch/index",
+    "pages/confirm/index",
+    "pages/refereeApplication/index",
+    "pages/microMatchPoint/index",
+    "pages/payment/index",
+    "pages/conductMatch/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "主页",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#E51C23",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
+    "borderStyle": "white",
+    "color": "#515151",
+    "selectedColor": "#E51C23",
+    "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/index/index",
+        "iconPath": "pages/image/icon-home.png",
+        "selectedIconPath": "pages/image/icon-home-on.png",
         "text": "首页"
       },
       {
-        "pagePath": "pages/logs/logs",
-        "text": "日志"
+        "pagePath": "pages/match/index",
+        "iconPath": "pages/image/icon-match.png",
+        "selectedIconPath": "pages/image/icon-match-on.png",
+        "text": "微赛"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "iconPath": "pages/image/icon-my.png",
+        "selectedIconPath": "pages/image/icon-my-on.png",
+        "text": "我的"
       }
     ]
   },
-  "debug": true,
+  "debug": true
 }
