@@ -1,0 +1,13 @@
+<!--pages/pay/index.wxml-->
+<view class='cotainer'>
+  <view class='choose-pay'>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <label class="radio" wx:for="{{paymentMethod}}">
+          <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+  <button class='pay' bindtap='pay'>确定支付</button>
+</view>
+
+

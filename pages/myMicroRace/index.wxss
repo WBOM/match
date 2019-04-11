@@ -1,0 +1,72 @@
+/* pages/myMicroRace/index.wxss */
+.container{
+  margin: 0;
+  padding: 0;
+  background: #F9F9F9;
+}
+.dynamic-list{
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.dynamic-box{
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: 8.69rem;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  margin-bottom: 0.5rem;
+}
+.dynamic-box .head{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.head .date{
+  width: 10rem;
+  height: 1.25rem;
+  font-size: 0.88rem;
+  color: #101010;
+}
+.attention{
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.attention image{
+  width: 1.19rem;
+  height: 1.19rem;
+  margin-right: 0.5rem;
+}
+.attention text{
+  font-size: 0.88rem;
+  color: #9D9D9D;
+  margin-right: 0.5rem;
+}
+.main{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.main image{
+  display: flex;
+  width: 5rem;
+  height: 5rem;
+  margin-right: 0.5rem;
+}
+.main text{
+  flex: 1;
+  font-size: 0.8rem;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:3;
+  text-overflow:ellipsis;
+  overflow: hidden;
+  line-height: 1.5rem;
+}

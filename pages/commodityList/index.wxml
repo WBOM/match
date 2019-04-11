@@ -1,0 +1,32 @@
+<!--pages/commodityList/index.wxml-->
+<view class='container'>
+  <view class='header'>
+    <view class='search'>
+      <view class='search-box'>
+        <icon size="41rpx" type='search'></icon>
+        <input placeholder="搜索关键字" bindblur="goSearch" bindconfirm="goSearch" confirm-type="search" value="{{searchValue}}"></input>
+      </view>
+    </view>
+    <view class='arrangement'>
+      <view class='time-sort' data-sort='addtime' bindtap='sort'>
+        <text>时间排序</text>
+        <icon class='triangle'></icon>
+      </view>
+      <view class='price-sort' data-sort='shop_price'bindtap='sort'>
+        <text>价格排序</text>
+        <icon class='triangle'></icon>
+      </view>
+    </view>
+  </view>
+  <view class="search-no" wx:if="{{!centent_Show}}">
+    <text>很抱歉,没有找到您要搜索的资料/(ㄒoㄒ)/~~</text>
+  </view> 
+  <view class='commodity-list'>
+    <view class='commodity-box' wx:for="{{commodityList}}" wx:for-item="commodity" wx:key="{{index}}" data-commodityid='{{commodity.goods_id}}' bindtap='goMallDetails'>
+      <image src='{{commodity.img_thumb}}'></image>
+      <text class='title'>{{commodity.goods_name}}</text>
+      <text class='price'>￥{{commodity.shop_price}}</text>
+    </view>
+  </view>
+  <button class='sponsor' bindtap='goSponsor'>赞助商</button>
+</view>

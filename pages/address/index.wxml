@@ -1,0 +1,27 @@
+<!--pages/address/index.wxml-->
+<view class='container'>
+  <view class='address-list'>
+    <view class='address-box' wx:for="{{addressList}}" wx:for-item="address" wx:key="{{index}}">
+      <view class='recipient'>
+        <text class='name'>{{address.name}}</text>
+        <text class='phone'>{{address.phone}}</text>
+      </view>
+      <view class='address-text'>
+        <text wx:if="{{address.type==1}}" class='default'>默认</text>
+        <text class='address'>{{address.address}}</text>
+        <text class='edit'>编辑</text>
+      </view>
+    </view>
+    <view class='address-box'>
+      <view class='recipient'>
+        <text class='name'>曾小姐</text>
+        <text class='phone'> 177****7044</text>
+      </view>
+      <view class='address-text'>
+        <text class='address'>深圳市布吉万科红立方大厦</text>
+        <text class='edit'>编辑</text>
+      </view>
+    </view>
+  </view>
+  <button class='new' bindtap='goAddAddress'>+ 新建收货地址</button>
+</view>

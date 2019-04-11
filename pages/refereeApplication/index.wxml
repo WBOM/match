@@ -12,7 +12,8 @@
     <view class="section">
       <view class="section__title">验证码</view>
       <input name="code" placeholder="请输入验证码" />
-      <button class='verificationCode'>发送验证码</button>
+      <button wx-if="{{!show}}" class='verificationCode' bindtap='goSend'>发送验证码</button>
+      <button wx-if="{{show}}" class='verificationCode' disabled>重新发送{{countDownNum}}</button>
     </view>
     <view class='buttom'>
       <button class='reset' form-type="reset">重置</button>

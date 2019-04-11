@@ -1,0 +1,29 @@
+<!--pages/withdraw/index.wxml-->
+<view class='container'>
+  <view class='bank-card' bindtap='goBankCardList'>
+    <view class='bank-card-photo'>
+      <image src='../image/index.png'></image>
+    </view>
+    <view class='bank' >
+      <text class='bank-name'>招商银行</text>
+      <text class='card-number'>尾号8899 储蓄卡</text>
+    </view>
+    <view>
+      <image class='next' src='../image/next.png'></image>
+    </view>
+  </view>
+  <view class='amount-box'>
+    <view class='text'>
+      <text>提现金额(收取0.1%服务费)</text>
+    </view>
+    <view class='amount'>
+      <text>￥</text>
+      <input name='{{available}}' type='bumber' value='{{amountNumber}}'></input>
+    </view>
+  </view>
+  <view class='amount-available'>
+    <text>可提现金额{{available}}元</text>
+    <text bindtap='all'>全部提现</text>
+  </view>
+  <button class='withdraw' bindtap='withdraw'>确认提现</button>
+</view>

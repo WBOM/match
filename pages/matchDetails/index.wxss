@@ -1,4 +1,4 @@
-/* pages/matchCetails/index.wxss */
+/* pages/matchDetails/index.wxss */
 .container{
   margin: 0;
   padding: 0;
@@ -56,13 +56,17 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
+  
 }
-.introduction view:first-child{
+.introduction .text{
+  display: flex;
+  flex-flow: column wrap;
+  font-size: 0.88rem;
+  line-height: 1.5rem;
   margin: 1rem;
 }
-.introduction view text{
-  display: flex;
-  font-size: 0.88rem;
+.text text{
+  margin-bottom: 1rem;
 }
 .button{
   margin: 0;
@@ -96,11 +100,14 @@
 }
 .personnel-list{
   width: 100%;
+  min-height: 5rem;
   display: flex;
   flex-flow: column nowrap;
 }
 .personnel{
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
   margin: 0.5rem 1rem 0.5rem;
   overflow: hidden;
   text-align: left;
@@ -115,7 +122,7 @@
   border-radius: 2rem;
 }
 .personnel text{
-  width: 100%;
+  display: flex;
   overflow: hidden;
   display: -webkit-box;
   word-break: break-all;

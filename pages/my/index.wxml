@@ -1,2 +1,100 @@
 <!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class='container'>
+  <view class='header'>
+    <view class='header-portrait'>
+      <open-data wx:if="{{hasUserInfo}}" type="userAvatarUrl"></open-data>
+      <button  wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo"
+      bindgetuserinfo="getUserInfo">点击登录</button>
+    </view>
+    <view class='header-information'>
+      <view class='header-information-1'>
+        <text wx:if="{{!hasUserInfo}}">登录后获取</text>
+        <open-data wx:if="{{hasUserInfo}}" type="userNickName"></open-data>
+        <text bindtap='goBindingPhone'>绑定手机</text>
+      </view>
+      <view class='header-information-2'>
+        <image src='../image/money.png'></image>
+        <text class='money'>我的佣金 212元</text>
+        <text class='cash-withdrawal' bindtap='goWithdraw'>提现</text>
+      </view>
+    </view>
+  </view>
+  <view class='features-list'>
+    <view class='features-box' bindtap='goManageClass'>
+      <image src='../image/class.png'></image>
+      <text>比赛分类</text>
+      <image class='next' src='../image/next.png'></image>
+    </view>
+    <view class='features-box' bindtap='goMyMatch1'>
+      <image src='../image/waiting-for-entry.png'></image>
+      <text>待参赛</text>
+      <image class='next' src='../image/next.png'></image>
+    </view>
+    <view class='features-box' bindtap='goMyMatch2'>
+      <image src='../image/participate-in-match.png'></image>
+      <text>参与的比赛</text>
+      <image class='next' src='../image/next.png'></image>
+    </view>
+    <view class='features-box' bindtap='goMyMatch3'>
+      <image src='../image/my-registration.png'></image>
+      <text>我的报名</text>
+      <image class='next' src='../image/next.png'></image>
+    </view>
+    <view class='features-box' bindtap='goInitiatedEvent'>
+      <image src='../image/initiated-event.png'></image>
+      <text>发起赛事</text>
+      <image class='next' src='../image/next.png'></image>
+    </view>
+    
+    <view class='blank'></view>
+
+    <view class='features-box'>
+      <image src='../image/administrator.png'></image>
+      <text>管理员</text>
+      <image class='next' src='../image/next.png'></image>
+    </view>
+    <view class='features-box' bindtap='goOrder'>
+      <image src='../image/order.png'></image>
+      <text>微订单</text>
+      <image class='next' src='../image/next.png'></image>
+    </view>
+    
+    <view class='blank'></view>
+
+    <view class='features-box' bindtap='goTransfer'>
+      <image src='../image/transfer.png'></image>
+      <text>权限转让</text>
+      <image class='next' src='../image/next.png'></image>
+    </view>
+    <view class='features-box' bindtap='goMyFocus'>
+      <image src='../image/match-concerns.png'></image>
+      <text>我的关注</text>
+      <image class='next' src='../image/next.png'></image>
+    </view>
+    <view class='features-box'  bindtap='goMyMatch4'>
+      <image src='../image/my-release.png'></image>
+      <text>我的发布</text>
+      <image class='next' src='../image/next.png'></image>
+    </view>
+    <view class='features-box' bindtap='goMyFocus'>
+      <image src='../image/my-focus.png'></image>
+      <text>我的关注</text>
+      <image class='next' src='../image/next.png'></image>
+    </view>
+    <view class='features-box' bindtap='goMyQRCode'>
+      <image src='../image/my-QR-code.png'></image>
+      <text>我的二维码</text>
+      <image class='next' src='../image/next.png'></image>
+    </view>
+    <view class='features-box' bindtap='goMyMicroRace'>
+      <image src='../image/administrator.png'></image>
+      <text>我的微赛圈</text>
+      <image class='next' src='../image/next.png'></image>
+    </view>
+    <view class='features-box' bindtap='goMySponsorship'>
+      <image src='../image/my-sponsorship.png'></image>
+      <text>我的赞助</text>
+      <image class='next' src='../image/next.png'></image>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,164 @@
+<!--pages/initiatedEvent/index.wxml-->
+<view class='container'>
+  <view class='main'>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="section">
+        <view class="section-title">赛事</view>
+        <picker
+          name="typeEvent" 
+          class='type-event' 
+          bindchange="bindTypeEventChange" 
+          value="{{typeEventList[typeEventIndex].id}}" 
+          range="{{typeEventList}}"
+          range-key="{{'title'}}"
+          >
+          <view class="picker">
+            {{typeEventList[typeEventIndex].title}}
+          </view>
+          <icon class='triangle'></icon>
+        </picker>
+      </view>
+      <view>
+        <view class="section">
+          <view class="section-title">标题</view>
+          <input class='title-event' name="titleEvent" placeholder="日本男子东京马拉松接力赛" />
+        </view>
+        <view class="section">
+          <view class="section-title">赛事时间</view>
+          <view class='date'>
+            <picker
+              mode="date"
+              value="{{startDate}}"
+              name="startDate"
+              start="2019-01-01"
+              end=""
+              bindchange="bindStartDateChange"
+            >
+              <view class="picker">
+                {{startDate}}
+              </view>
+            </picker>
+            <text>--</text>
+            <picker
+              mode="date"
+              name="endDate"
+              value="{{endDate}}"
+              start="2019-01-01"
+              end=""
+              bindchange="bindEndDateChange"
+            >
+              <view class="picker">
+                {{endDate}}
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class="section">
+          <view class="section-title">赛事地点</view>
+          <view class='location'>
+            <input name="location" placeholder="{{address}}" />
+            <button class='select' bindtap='onChangeAddress'>选择位置</button>
+          </view>
+        </view>
+        <view class="section">
+          <view class="section-title">比赛种类</view>
+          <picker 
+            name="matchClass" 
+            class='type-competition' 
+            bindchange="bindMatchClassChange" 
+            value="{{matchClassList[matchClassIndex].id}}" 
+            range="{{matchClassList}}" 
+            range-key="{{'title'}}"
+            >
+            <view class="picker">
+              {{matchClassList[matchClassIndex].title}}
+            </view>
+            <icon class='triangle'></icon>
+          </picker> 
+        </view>
+      </view>
+      <view>
+        <view class="project-list" wx:for="{{projectNumber}}" wx:key="{{index}}">
+          
+          <view class='project-name'>
+            <view class="project-title">比赛项目{{index+1}}</view>
+            <input name="projectName{{index}}" placeholder="请添加项目" />
+          </view>
+          <view class='project-box'>
+            <view class="title">报名人数</view>
+            <input name="numberPeople{{index}}" placeholder="" />
+            <text>人</text>
+          </view>
+          <view class='project-box'>
+            <view class="title">团体组队方式</view>
+            <picker name="teamMode{{index}}" class='team-mode' bindchange="bindTeamModeChange" value="{{teamModeId}}" range="{{teamModeList}}">
+              <view class="picker">
+                {{teamModeList[teamModeId]}}
+              </view>
+            </picker>
+            <icon class='triangle'></icon>
+          </view>
+          <view class='project-box'>
+            <view class="title">小组数</view>
+            <input name="numberGroups{{index}}" placeholder="" />
+            <text>组</text>
+          </view>
+          <view class='project-box'>
+            <view class="title">出线人数</view>
+            <input name="eliminateNumber{{index}}" placeholder="" />
+            <text>人</text>
+          </view>
+          <view class='project-box'>
+            <view class="title">报名费</view>
+            <input name="cost{{index}}" placeholder="" />
+            <text>元</text>
+          </view> 
+        </view>
+        <view class='add-item'>
+          <view>
+            <button bindtap='delList'>-删除新项目</button>
+          </view>
+          <view>
+            <button bindtap='addList'>+添加新项目</button>
+          </view>
+        </view>
+      </view>
+      <view class='host'>
+        <view class="section">
+          <view class="section-title">微赛点（主办方）</view>
+          <textarea class='host-name' name="hostName" bindblur="bindTextAreaBlur" auto-height placeholder="主办方名称****俱乐部或公司" />
+        </view>
+      </view>
+      <view class='album'>
+        <text>上传照片</text>
+        <view class='album-box'>
+          <image src='{{albumPhotos[index]}}' wx:for="{{albumPhotos}}"></image>
+          <image src='../image/increase.png' bindtap='addAlbum' mode="aspectFill"></image>
+        </view>
+      </view>
+      <view class='video'>
+        <text>视频</text>
+        <video src="{{video}}"></video>
+        <view class='addVideo'>
+          <button bindtap='addVideo'>上传视频</button>
+        </view> 
+      </view>
+      <view class='rule'>
+        <view class="section">
+          <view class="section-title">比赛规则</view>
+          <textarea name="rule" bindblur="bindTextAreaBlur" placeholder="赛制的描述" />
+        </view>
+      </view>
+      <view class='cost'>
+        <view>
+          <text>支付费用:</text>
+          <text class='price'>200元</text>
+        </view>
+        <view>
+          <button form-type='submit'>确认支付</button>
+        </view>
+      </view>
+    </form>
+  </view>
+  
+</view>

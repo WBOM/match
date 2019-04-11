@@ -1,21 +1,13 @@
 <!--pages/microMatchPoint/index.wxml-->
 <view class='container'>
   <view class='header'>
-    <image src='../image/index.png' mode="scaleToFill"></image>
-    <text>121</text>
+    <image src='{{userInfo.headimgurl}}' mode="scaleToFill"></image>
+    <text>{{userInfo.username}}</text>
   </view>
   <view class='main'>
-    <view class='main-box'>
-      <image src='../image/index.png' mode="scaleToFill"></image>
-      <text>2019中国牡丹之都菏泽职业篮球联赛即将开赛</text>
-    </view>
-    <view class='main-box'>
-      <image src='../image/index.png' mode="scaleToFill"></image>
-      <text>121212</text>
-    </view>
-    <view class='main-box'>
-      <image src='../image/index.png' mode="scaleToFill"></image>
-      <text>121212</text>
+    <view class='main-box' wx:for="{{matchList}}" wx:for-item="match" wx:key="{{index}}" wx:if="{{match.id != matchId}}" bindtap='goMatchCetails'>
+      <image src='{{match.img_orogin}}' mode="scaleToFill"></image>
+      <text>{{match.title}}</text>
     </view>
   </view>
 </view>

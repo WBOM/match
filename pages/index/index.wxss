@@ -7,17 +7,22 @@
 }
 .title-img{
   width: 100%;
+  height: 10.5rem;
+}
+.title-img swiper{
+  height: 100%;
+  display: flex;
 }
 .title-img image{
   display: flex;
   width: 100%;
-  height: 10.5rem;
+  height: 100%;
 }
 /***************************赛事分类********************************/
 .main{
   display: flex;
   width: 100%;
-  height: 11.56rem;
+  max-height: 11.56rem;
   background: #FFFFFF;
   flex-direction: row;
 }
@@ -66,6 +71,7 @@
   line-height: 1.5rem;
 }
 .recommend-list{
+  width: 100%;
   display: flex;
   overflow:hidden;
   flex-flow:row wrap;
@@ -105,4 +111,26 @@
   height: 2.44rem;
   line-height: 1.22rem;
   color: #101010;
+}
+/******************************************/
+.notice{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  height: 1.75rem;
+  overflow: hidden;
+  background: #FFFFFF;
+}
+.notice icon{
+  margin: 0.3rem;
+}
+.notice .clear{
+
+}
+.notice text{
+  display: flex;
+  height: 1.75rem;
+  line-height: 1.75rem;
+  font-size: 0.75rem;
 }

@@ -1,0 +1,41 @@
+<!--pages/numberApplicants/index.wxml-->
+<view class='container'>
+  <view class='match'>
+    <view class='photo'>
+      <image src='../image/index.png'></image>
+    </view>
+    <view class='text'>
+      <view>
+        <text class='title'>2019 大理马拉松</text>
+      </view>
+      <view class='address'>
+        <text>云南省 大理白族自治州 大121212121212</text>
+      </view>
+      <view class='project'>
+        <text>羽毛球赛 单打</text>
+        <text>已报名 98人</text>
+      </view>
+    </view>
+  </view>
+  <view class='title-1'>
+    <text>已报名人员</text>
+  </view>
+  <view class='applicants-list'>
+    <view class='applicants-box'>
+      <image src='../image/index.png'></image>
+      <text>人员1</text>
+    </view>
+    <view class='applicants-box'>
+      <image src='../image/index.png'></image>
+      <text>人员2</text>
+    </view>
+    <view class='applicants-box'>
+      <image src='../image/index.png'></image>
+      <text>人员1</text>
+    </view>
+    <view class='applicants-box'>
+      <image src='../image/index.png'></image>
+      <text>人员1</text>
+    </view>
+  </view>
+</view>

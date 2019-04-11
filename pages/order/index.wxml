@@ -1,0 +1,51 @@
+<!--pages/order/index.wxml-->
+<view class='container'>
+  <view class='recipient' bindtap='goAddress'>
+    <view class='text'>
+      <text class='title'>曾小姐 177****7044</text>
+      <text class='address'>深圳市布吉万科红立方大厦</text>
+    </view>
+    <view>
+      <image class='next' src='../image/next.png'></image>
+    </view>
+  </view>
+  <view class='purchased'>
+    <text>您选购的商品</text>
+  </view>
+  <view class='commodity-list'>
+    <view class="commodity-box">
+      <view class='image'>
+        <image src='../image/index.png'></image>
+      </view>
+      <view class='content'>
+        <view class='title'>
+          <text>3件装 | MEDIHEAL 美迪惠尔 N.M.F针剂水库保湿面膜 10片/盒</text>
+        </view>
+        <view class='price-box'>
+          <view class='price'>
+            <text>￥169.00</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='cost'>
+    <view class='amount'>
+      <text>商品金额</text>
+      <text>¥12000.00</text>
+    </view>
+    <view class='freight'>
+      <text>运费</text>
+      <text>+ ¥0.00</text>
+    </view>
+  </view>
+  <view class='bottom'>
+    <view class='total'>
+      <text>合计金额：</text>
+      <text class='number'>¥1500.00</text>
+    </view>
+    <view class='confirm'>
+      <button bindtap='goPay'>确认支付</button>
+    </view>
+  </view>
+</view>

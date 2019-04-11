@@ -1,19 +1,46 @@
 {
   "pages": [
-    "pages/matchDetails/index",
+    
     "pages/index/index",
+    "pages/manageClass/index",
+    "pages/payment/index",
+    "pages/pay/index",
+    "pages/addBankCard/index",
+    "pages/bankCardList/index",
+    "pages/withdraw/index",
+    "pages/bindingPhone/index",
+    "pages/initiatedEvent/index",
+    "pages/conductMatch/index",
+    "pages/matchDetails/index",
     "pages/matchSponsor/index",
     "pages/match/index",
     "pages/matchClass/index",
     "pages/matchList/index",
-    "pages/my/index",
     "pages/logs/logs",
     "pages/fillInMatch/index",
     "pages/confirm/index",
     "pages/refereeApplication/index",
     "pages/microMatchPoint/index",
-    "pages/payment/index",
-    "pages/conductMatch/index"
+    "pages/organiser/index",
+    "pages/myMicroRace/index",
+    "pages/microRace/index",
+    "pages/releaseMicroRace/index",
+    "pages/sponsor/index",
+    "pages/commodityList/index",
+    "pages/live/index",
+    "pages/myQRCode/index",
+    "pages/mySponsorship/index",
+    "pages/transfer/index",
+    "pages/numberApplicants/index",
+    "pages/myMatch/index",
+    "pages/addAddress/index",
+    "pages/address/index",
+    "pages/order/index",
+    "pages/mall/index",
+    "pages/myFocus/index",
+    "pages/my/index",
+    "pages/mallDetails/index"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -47,5 +74,10 @@
       }
     ]
   },
-  "debug": true
+  "debug": true,
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  }
 }

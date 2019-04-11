@@ -1,0 +1,92 @@
+/* pages/numberApplicants/index.wxss */
+.container{
+  margin: 0;
+  padding: 0;
+  background: #F9F9F9;
+}
+.match{
+  width: 100%;
+  height: 7.5rem;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row nowrap;
+  background: #FFFFFF;
+}
+.photo{
+  display: flex;
+  margin-right: 0.5rem;
+}
+.photo image{
+  width: 6rem;
+  height: 6rem;
+}
+.text{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  font-size: 0.88rem;
+}
+.content .text{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  font-size: 0.88rem;
+  color: #101010;
+}
+.text .title{
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:1;
+  text-overflow:ellipsis;
+  overflow: hidden;
+  margin-bottom: 0.2rem;
+}
+.text .address{
+  font-size: 0.75rem;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  text-overflow:ellipsis;
+  overflow: hidden;
+}
+.text .project{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.title-1{
+  width: 100%;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.88rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+.applicants-list{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  background: #FFFFFF;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+.applicants-box{
+  width: 50%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 2rem; 
+  margin: 0.5rem 0 0.5rem;
+  font-size: 0.88rem;
+}
+.applicants-box image{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}

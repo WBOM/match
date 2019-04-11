@@ -2,32 +2,25 @@
 <view class='container'>
   <view class='amount-box order-amount'>
     <text>订单金额</text>
-    <text class='amount'>￥{{198}}</text>
+    <text class='amount'>￥{{project.team_price}}</text>
   </view>
   <view class='amount-box order-information'>
     <view>
       <text>订单编号：</text>
-      <text>121278788</text>
+      <text>{{order_id}}</text>
     </view>
     <view>
       <text>比赛：</text>
-      <text>2019 大理国际马拉松</text>
+      <text>{{infoList.title}}</text>
     </view>
     <view>
-      <text>组别：</text>
-      <text>全程马拉松（中国籍）</text>
+      <text>项目：</text>
+      <text>{{project.team_name}}</text>
     </view>
     <view>
       <text>比赛时间：</text>
-      <text>2019-05-05</text>
+      <text>{{infoList.game_starttime}}</text>
     </view>
   </view>
-  <view>
-    <radio-group class="radio-group" bindchange="radioChange">
-      <label class="radio" wx:for="{{paymentMethod}}">
-          <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
-      </label>
-    </radio-group>
-  </view>
-  <button class='pay'>立即支付</button>
+  <button class='pay' bindtap='goPay'>立即支付</button>
 </view>

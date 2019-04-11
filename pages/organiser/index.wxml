@@ -1,0 +1,258 @@
+
+<!--pages/organiser/index.wxml-->
+<view class='container'>
+  <!--选项-->
+  <view class='option'>
+    <view>
+      <text class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">场次</text>
+    </view>
+    <view>
+       <text class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">报名列表</text>
+    </view>
+    <view>
+       <text class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">裁判列表</text>
+    </view>
+    <view>
+       <text class="swiper-tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="clickTab">比赛结果</text>
+    </view>
+  </view>
+  <view class='introduction'>
+    <!--场次-->
+    <view class = "{{currentTab == 0 ? 'show':'hidden'}}" >
+      <scroll-view>
+        <form bindsubmit="formSubmit" bindreset="formReset">
+          <view class="section">
+            <view class="section-title">小组赛</view>
+            <picker name="group" bindchange="bindGroupListChange" value="{{groupIndex}}" range="{{groupList}}">
+              <view class="picker">
+                  {{groupList[groupIndex]}}
+              </view>
+              <icon class='triangle'></icon>
+            </picker>
+            <picker name="site" bindchange="bindSiteListChange" value="{{siteIndex}}" range="{{siteList}}">
+              <view class="picker">
+                  {{siteList[siteIndex]}}
+              </view>
+              <icon class='triangle'></icon>
+            </picker>
+            <picker name="site" bindchange="bindRefereeListChange" value="{{refereeIndex}}" range="{{refereeList}}">
+              <view class="picker">
+                  {{refereeList[refereeIndex]}}
+              </view>
+              <icon class='triangle'></icon>
+            </picker>
+          </view>
+          <view class='button'>
+            <button class='invite'>邀请加入该组</button>
+            <button class='submit' form-type='submit'>确定</button>
+          </view>
+        </form>
+        <view class='vs-list'>
+          <view class='vs-box'>
+            <text class='score'>3 : 4</text>
+            <view class='player'>
+              <text>张三</text>
+              <text>vs</text>
+              <text>李四</text>
+            </view>
+            <view class='vs-information'>
+              <text>时间：2019：03：12</text>
+              <text>等待对方确认</text>
+            </view>
+          </view>
+          <view class='vs-box'>
+            <form bindsubmit="formSubmit" bindreset="formReset">
+              <view class='score'>
+                <view class="section">
+                  <input name="leftScore" type='number' placeholder="0" />
+                  <text>：</text>
+                  <input name="rightScore" type='number' placeholder="0" />
+                </view>
+              </view>
+              <view class='player'>
+                <text>张三</text>
+                <text>vs</text>
+                <text>李四</text>
+              </view>
+              <view class='vs-information'>
+                <text class="title-1">时间：</text>
+                <view class="section-date">
+                  <picker name="date" class='date' mode="date" value="{{date}}" start="2019-01-01" bindchange="bindDateChange">
+                    <view class="picker">
+                      {{date}}
+                    </view>
+                  </picker>
+                </view>
+                <view class="section-time">
+                  <picker name="time" mode="time" class='time' value="{{time}}" start="00：00" end="23:59" bindchange="bindTimeChange">
+                    <view class="picker">
+                      {{time}}
+                    </view>
+                  </picker>
+                </view>
+                <button form-type='submit'>确认</button>
+              </view>
+            </form>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <!--报名列表-->
+    <view class = "{{currentTab == 1 ? 'show':'hidden'}}" >
+      <scroll-view>
+        <view class='signUpList'>
+          <view class='player-box'>
+            <view class='header'>
+              <text class='head-1'>第一名</text>
+              <text class='head-2'>90分</text>
+              <text class='head-3'>+邀请加入 |</text>
+              <text class='head-4'>删除</text>
+            </view>
+            <view class='name'>
+              <text>张三</text>
+            </view>
+            <view class='bottom'>
+              <text>13828776965</text>
+              <button>设为种子选手</button>
+            </view>
+          </view>
+          <view class='player-box'>
+            <view class='header'>
+              <text class='head-1'>第一名</text>
+              <text class='head-2'>90分</text>
+              <text class='head-3'>+邀请加入 |</text>
+              <text class='head-4'>删除</text>
+            </view>
+            <view class='name'>
+              <text>张三</text>
+            </view>
+            <view class='bottom'>
+              <text>13828776965</text>
+              <button>设为种子选手</button>
+            </view>
+          </view>
+          <view class='player-box'>1212</view>
+          <view class='player-box'>1212</view>
+        </view>
+        <button class='end'>报名结束</button>
+        <view class='knockout-box'>
+          <text class='title'>淘汰赛</text>
+          <text class='checkIn'>签到人数</text>
+          <text class='checkIn-number'>12人</text>
+          <view>
+            <button>按签到分组</button>
+            <button>不按签到分组</button>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <!--裁判列表-->
+    <view class = "{{currentTab == 2 ? 'show':'hidden'}}">
+      <scroll-view>
+        <view class='referee-list'>
+          <view class='referee-box'>
+            <view class='left'>
+              <text>张三 </text>
+              <text>13828776965</text>
+            </view>
+            <view class='right'>
+              <button>通过</button>
+              <button class='refuse'>拒绝</button>
+            </view>
+          </view>
+          <view class='referee-box'>
+            <view class='left'>
+              <text>张三 </text>
+              <text>13828776965</text>
+            </view>
+            <view class='right'>
+              <button>通过</button>
+              <button class='refuse'>拒绝</button>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <!--比赛结果-->
+    <view class = "{{currentTab == 3 ? 'show':'hidden'}}">
+      <scroll-view>
+        <view class='rank-list'>
+          <view class='rank-box'>
+            <view class='ranking'>
+              <image wx:if="{{ranking}}"src="../image/gold.png"></image>
+              <text wx:if="{{!ranking}}">1</text>
+            </view>
+            <image class='add-player' src="{{playerPhoto}}" bindtap='addPlayerPhoto'mode="aspectFill"></image>
+            <view class='player-information'>
+              <text>yyy</text>
+              <input placeholder=" 请输入内容"></input>
+            </view>
+          </view>
+          <view class='rank-box'>
+            <view class='ranking'>
+              <image wx:if="{{ranking}}"src="../image/silver.png"></image>
+              <text wx:if="{{!ranking}}">2</text>
+            </view>
+            <image class='add-player' src="{{playerPhoto}}" bindtap='addPlayerPhoto'mode="aspectFill"></image>
+            <view class='player-information'>
+              <text>yyy</text>
+              <input placeholder=" 请输入内容"></input>
+            </view>
+          </view>
+          <view class='rank-box'>
+            <view class='ranking'>
+              <image wx:if="{{ranking}}"src="../image/copper.png"></image>
+              <text wx:if="{{!ranking}}">3</text>
+            </view>
+            <image class='add-player' src="{{playerPhoto}}" bindtap='addPlayerPhoto'mode="aspectFill"></image>
+            <view class='player-information'>
+              <text>yyy</text>
+              <input placeholder=" 请输入内容"></input>
+            </view>
+          </view>
+          <view class='rank-box'>
+            <view class='ranking'>
+              <text wx:if="{{!ranking}}">4</text>
+            </view>
+            <image class='add-player' src="{{playerPhoto}}" bindtap='addPlayerPhoto'mode="aspectFill"></image>
+            <view class='player-information'>
+              <text>yyy</text>
+              <input placeholder=" 请输入内容"></input>
+            </view>
+          </view>
+          <view class='rank-box'>
+            <view class='ranking'>
+              <text wx:if="{{!ranking}}">5</text>
+            </view>
+            <image class='add-player' src="{{playerPhoto}}" bindtap='addPlayerPhoto' mode="aspectFill"></image>
+            <view class='player-information'>
+              <text>yyy</text>
+              <input placeholder=" 请输入内容"></input>
+            </view>
+          </view>
+          <image class='more' bindtap='moreRank' src='../image/more.png'></image>
+        </view>
+        <!--相册-->
+        <view class='album'>
+          <text>相册</text>
+          <view class='album-box'>
+            <image src='{{albumPhotos[index]}}' wx:for="{{albumPhotos}}" bindtap='addAlbum' mode="aspectFill">
+            </image>
+          </view>
+        </view>
+        <view class='video'>
+          <text>视频</text>
+          <video src="{{video}}"></video>
+          <button bindtap='addVideo'>上传视频</button>
+        </view>
+        <view class='text'>
+          <text>比赛内容、介绍</text>
+          <view class="textarea-wrp">
+            <textarea bindblur="bindTextAreaBlur" placeholder="说点什么" auto-height />
+          </view>
+        </view>
+        <button class='release'>发布</button>
+      </scroll-view>
+    </view>
+  </view>
+</view>

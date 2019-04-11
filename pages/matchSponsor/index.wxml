@@ -39,10 +39,10 @@
     </view>
     <view class = "{{currentTab == 2 ? 'show':'hidden'}}">
       <scroll-view>
-        <view class='sponsor-box'>
+        <view class='sponsor-box' wx:for="{{sponsorList}}" wx:for-item="sponsor" wx:key="{{index}}">
           <image src='../image/index.png' mode="scaleToFill" lazy-load="true"></image>
           <view>
-            <text class='name'>李宁旗舰店赞助</text>
+            <text class='name'>{{sponsor.username}}</text>
             <text class='product-name'>3件装 | MEDIHEAL 超薄透气运动服装</text>
             <text class='price'>￥价格</text>
           </view>

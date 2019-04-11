@@ -1,0 +1,33 @@
+<!--pages/addBankCard/index.wxml-->
+<view class='container'>
+  <form class='bank-card' bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <view class="section-title">开户银行</view>
+      <input name="bankSccount" placeholder="请输入开户银行" />
+    </view>
+    <view class="section">
+      <view class="section-title">银行卡卡号</view>
+      <input name="bankCardNumber" placeholder="请输入银行卡号" />
+    </view>
+    <view class="title">
+      <text>信息验证:</text>
+    </view>
+    <view class="section">
+      <view class="section-title">姓名</view>
+      <input name="name" placeholder="请输入姓名" />
+    </view>
+    <view class="section">
+      <view class="section-title">身份证</view>
+      <input name="IdCard" placeholder="请输入身份证信息" />
+    </view>
+    <view class="section">
+      <view class="section-title">手机号</view>
+      <input name="phone" placeholder="请输入手机号" />
+    </view>
+    <view class="section">
+      <view class="section-title">验证码</view>
+      <input name="yzm" placeholder="请输入验证码" />
+    </view>
+    <button form-type='submit' class='submit'>确认</button>
+  </form>
+</view>

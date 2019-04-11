@@ -1,6 +1,7 @@
 // pages/matchList/index.js
-Page({
+import call from '../../utils/request.js'
 
+Page({
   /**
    * 页面的初始数据
    */
@@ -9,55 +10,89 @@ Page({
     locking:false,
     box:false,
     animationData: {},
-    selectLists: [
-      { name: 'USA', value: '美国', price:188 },
-      { name: 'CHN', value: '中国', price:998 },
-      { name: 'BRA', value: '巴西', price:666 },
-      { name: 'JPN', value: '日本', price:121 },
-      { name: 'ENG', value: '英国', price:133 },
-      { name: 'TUR', value: '法国', price:222 },
-      { name: 'TUR', value: '法国', price:222 },
-      { name: 'TUR', value: '法国', price: 22 },
-    ],
-    totalPrice: 0, 
+    selectLists:'',
+    totalPrice: 0, //总价
+    currentTab: 0,
+    matchLists:{},
+    raceType:[],
+    matchId:[],
+    projectId:'',
   },
-  goMatchDetails:function(){
-    wx:wx.navigateTo({
-      url: '../matchDetails/index',
+  //赛事详情
+  goMatchDetails:function(e){
+    wx.navigateTo({
+      url: "../matchDetails/index?matchId=" + e.target.dataset.matchid,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
     })
   },
+  //跳转到发布赛事
+  goInitiatedEvent: function () {
+    wx.navigateTo({
+      url: '../initiatedEvent/index',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  
+  /*
   //获取总价
-  getTotalPrice() {
+   getTotalPrice() {
     let selectLists = this.data.selectLists;                  // 获取购物车列表
     let total = 0;
+    this.data.projectId=[];
     for (let i = 0; i < selectLists.length; i++) {         // 循环列表得到每个数据
       if (selectLists[i].selected) {                   // 判断选中才会计算价格
-        total += selectLists[i].price;     // 所有价格加起来
+        total += parseFloat(selectLists[i].team_price);  // 所有价格加起来
+        this.data.projectId.push(selectLists[i].id);
       }
     }
     this.setData({                                // 最后赋值到data中渲染到页面
       selectLists: selectLists,
       totalPrice: total.toFixed(0)
     });
+    console.log(this.data.projectId);
   },
   //选择事件
-  selectList(e) {
+  goSelectList(e) {
     const index = e.currentTarget.dataset.index;    // 获取data- 传进来的index
     let selectLists = this.data.selectLists;                    // 获取购物车列表
     const selected = selectLists[index].selected;         // 获取当前商品的选中状态
-    selectLists[index].selected = !selected;              // 改变状态
+    selectLists[index].selected = !selected;         // 改变状态
     this.setData({
-      selectLists: selectLists
+      selectLists: selectLists,
     });
+    console
     this.getTotalPrice();                           // 重新获取总价
   },
+  */
   //点击一键报名，显示赛事选择
-  selectEvent:function(){
-    // 用that取代this，防止不必要的情况发生
+  selectEvent:function(e){
     var that = this;
+    console.log(e.target.dataset.matchid);
+    wx.request({
+      url: 'http://test.tuolve.com/jingsai/web/api.php/BookLists/lists',
+      data: {
+        book_id: e.target.dataset.matchid
+        },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+        that.setData(
+          {
+            matchId: e.target.dataset.matchid,
+            selectLists: res.data.lists,
+            totalPrice:res.data.lists[0].team_price,
+            projectId:res.data.lists[0].id,
+          })
+      },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
     // 创建一个动画实例
     var animation = wx.createAnimation({
       // 动画持续时间
@@ -103,34 +138,154 @@ Page({
         animationData: animation.export(),
         selectEvent: false,
         locking:false,
-        box: false
+        box: false,
+        currentTab:0,
+        matchId:-1
       })
     }, 200)
   },
-  //分类显示下拉框
-  classShow:function(){
+  //选择事件
+  goSelectList: function (e) {
+    const index = e.currentTarget.dataset.index;    // 获取data- 传进来的index
+    let selectLists = this.data.selectLists;                    // 获取购物车列表     
     this.setData({
-      box:true,
-      locking:true,
-    })
+      projectId: selectLists[index].id,
+      totalPrice: selectLists[index].team_price
+    });
+    console.log(this.data.projectId);
+  },
+  //分类显示下拉框
+  classShow:function(e){
+    var that = this;
+    console.log(e.target.dataset);
+    if (this.data.currentTab === e.target.dataset.current) {
+      that.setData({
+        currentTab:0,
+        box:false
+      })
+    } else {
+      that.setData({
+        currentTab: e.target.dataset.current,
+        box:true
+      })
+    } 
   },
   //报名
   signUp:function(){
-    wx:wx.navigateTo({
-      url: '../fillInMatch/index',
-      success: function(res) {},
+    if (this.data.matchId!=''){
+      wx.navigateTo({
+        url: '../fillInMatch/index?projectId=' + this.data.projectId + '&matchId=' + this.data.matchId,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }else{
+      wx.showModal({
+        showCancel:false,
+        confirmColor:'#E51C23',
+        content: '请选择报名项目',
+        success(res) {
+          console.log('用户点击确定')
+        }
+      })
+    }
+    
+  },
+  move: function () { },
+  //获取推荐列表
+  getRecommendLists:function(){
+    var that=this;
+    call.request({
+      url: 'http://test.tuolve.com/jingsai/web/api.php/BookInfo/lists',
+      data: {is_tuijian:1},
+      header: {
+        'content-type': 'application/json'
+      },
+      method: 'POST',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+        that.setData(
+          {
+            matchLists: res.data.lists
+          })  
+      },
       fail: function(res) {},
       complete: function(res) {},
     })
   },
-  move: function () { },
+  //获取赛事种类
+  getMatchClass: function () {
+    var that = this;
+    wx.request({
+      url: 'http://test.tuolve.com/jingsai/web/api.php/BookCategory/lists',
+      data: {},
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log('赛事种类' + res.data)
+        that.setData(
+          {
+            raceType: res.data.data
+          }
+        )
+      }
+    })
+  },
+  //通过赛事种类获取赛事列表
+  getMatchTypeLists: function (e) {
+    var that = this;
+    that.setData({
+      currentTab: 0,
+      box: false,
+    }),
+    call.request({
+      url: 'http://test.tuolve.com/jingsai/web/api.php/BookInfo/lists',
+      data: {
+        cate_id: e.target.dataset.type
+        },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        if (typeof (res.data.lists) == "undefined") {
+          wx.showToast({
+            title: '暂无数据',
+            icon: 'none',
+            duration: 1000
+          }),
+          that.setData(
+            {
+              matchLists: {},
+            }
+          )
+        } else {
+          that.setData(
+            {
+              matchLists: res.data.lists,
+            }
+          )
+        }
+      },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  //获取赛事项目列表
+  getProjectLists: function (e) {
+    var that = this;
+    
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getRecommendLists();
+    this.getMatchClass();
   },
-
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,0 +1,14 @@
+<!--pages/mySponsorship/index.wxml-->
+<view class='container'>
+  <view class='sponsor-list'>
+    <view class='sponsor-box' wx-for="{{peopleList}}">
+      <view class='name'>
+        <text>{{item.username}}</text>
+        <text bindtap='confirmDelete'>删除</text>
+      </view>
+      <view class='phone'>
+        <text>{{item.phone}}</text>
+      </view>
+    </view>
+  </view>
+</view>

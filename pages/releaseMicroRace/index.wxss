@@ -1,0 +1,58 @@
+/* pages/releaseMicroRace/index.wxss */
+.container{
+  margin: 0;
+  padding: 0;
+  background: #F9F9F9;
+}
+.contnet{
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.textarea-wrp{
+  width:100vw;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  height: 9.38rem;
+  font-size: 0.88rem;
+  background-color: #fff;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+textarea {
+  padding: 0.5rem 0;
+}
+.photos{
+  width: 100%;
+}
+.photos-box{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 0.5rem 1rem;
+  background: #ffffff;
+}
+.photos-box image{
+  width: 5rem;
+  height: 5rem;
+  margin: 0.5rem;
+  background: #F4F4F4;
+  border-radius: 0.25rem;
+}
+.release{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 1rem;
+}
+.release button{
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #E51C23;
+  color: #ffffff;
+}
+

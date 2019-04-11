@@ -1,0 +1,104 @@
+/* pages/sponsor/index.wxss */
+.container{
+  margin: 0;
+  padding: 0;
+   background: #F9F9F9;
+}
+.search{
+  width: 100%;
+  position: fixed;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background: #FFFFFF;
+}
+/*****商品*****/
+.commodity{
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  padding: 0;
+}
+.commodity button{
+  background: #FFFFFF;
+  color:#E51C23;
+}
+.commodity button::after{
+  border: none;
+}
+.search-box{
+  width: 100%;
+  margin: 0.8rem;
+  height: 1.3rem;
+  line-height: 1.3rem;
+  font-size: 0.7rem;
+  border-radius: 1.25rem 1.25rem 1.25rem 1.25rem;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0rem 0rem 0.13rem 0rem rgba(170, 170, 170, 1);
+  border: 0.06px solid rgba(255, 255, 255, 0);
+}
+.search-box icon{
+  width: 1rem;
+  height: 1rem;
+  margin: 0.1rem 0.3rem;
+  float: left;
+}
+.search-box input{
+  color: #101010;
+}
+.search-no{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  font-size: 0.88rem;
+}
+/**************赞助商列表***************/
+.sponsor-list{
+  margin-top: 2.9rem;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+}
+.sponsor-box{
+  display: flex;
+  flex-flow: row nowrap;
+  box-sizing: border-box;
+  width: 100%;
+  height: 9rem;
+  border-bottom: 0.06rem #d3d3d3 solid;
+  margin: 0.5rem 0 0;
+  padding:1rem;
+  background: #FFFFFF;
+}
+.sponsor-box image{
+  display: flex;
+  width: 6.5rem;
+  height: 8rem;
+  background: #d3d3d3;
+  margin-right: 0.5rem;
+}
+.sponsor-box view{
+  display: flex;
+  flex-flow: column nowrap;
+}
+.title{
+  color: #2D2D2D;
+  font-size: 0.88rem;
+  margin-bottom: 0.5rem;
+}
+.text{
+  font-size: 0.75rem;
+  line-height: 1.2rem;
+  color: #101010;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:4;
+  text-overflow:ellipsis;
+  overflow: hidden;
+}

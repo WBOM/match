@@ -1,0 +1,30 @@
+<!--pages/bankCardList/index.wxml-->
+<view class='container'>
+  <view class='bank-card' bindtap='goBankCardList'>
+    <view class='bank-card-photo'>
+      <image src='../image/index.png'></image>
+    </view>
+    <view class='bank' >
+      <text>微信零钱</text>
+    </view>
+  </view>
+  <view class='bank-card' bindtap='goBankCardList'>
+    <view class='bank-card-photo'>
+      <image src='../image/index.png'></image>
+    </view>
+    <view class='bank' >
+      <text class='bank-name'>招商银行</text>
+      <text class='card-number'>尾号8899 储蓄卡</text>
+    </view>
+  </view>
+  <view class='bank-card' bindtap='goBankCardList'>
+    <view class='bank-card-photo'>
+      <image src='../image/index.png'></image>
+    </view>
+    <view class='bank' >
+      <text class='bank-name'>招商银行</text>
+      <text class='card-number'>尾号8899 储蓄卡</text>
+    </view>
+  </view>
+  <button class='add' bindtap='addBankCard'>添加银行卡</button>
+</view>

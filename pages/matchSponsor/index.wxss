@@ -6,6 +6,8 @@
 }
 /*************标题****************/
 .title{
+  position: fixed;
+  top: 0;
   display: block;
   width: 100%;
   height: 1.94rem;
@@ -14,9 +16,13 @@
   font-size: 0.78rem;
   color: #101010;
   margin: 0.2rem auto;
+  z-index: 2;
+  background: #ffffff;
 }
 /************选项卡***************/
 .option{
+  position: fixed;
+  top: 1.94rem;
   text-align: center;
   display: flex;
   flex-flow: row;
@@ -27,6 +33,8 @@
   font-size: 0.78rem;
   color: #101010;
   border-bottom: 0.06rem #BBBBBB solid;
+  z-index: 2;
+  background: #ffffff;
 }
 .option view{
   display: block;
@@ -51,6 +59,7 @@
 }
 /*内容区域*/
 .introduction{
+  margin-top: 3.94rem;
   display: flex;
   flex-flow: column nowrap;
   box-sizing: border-box;
@@ -70,15 +79,16 @@
   display: flex;
   flex-flow: row nowrap;
   margin-bottom: 0.5rem;
-  padding: 0.5rem 0;
+  padding: 0.5rem;
   background: #ffffff;
   border-bottom: 0.06rem #BBBBBB solid;
   border-radius: 0.2rem;
+  box-sizing: border-box;
 }
 .sponsor-box image{
   display: flex;
   width: 35%;
-  height: 9rem;
+  height: 8rem;
   margin: 0 0.5rem;
 }
 .sponsor-box view{

@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    matchId:'',
     currentTab: 1,
+    sponsorList:{},
   },
   // 点击切换
   clickTab: function (e) {
@@ -27,13 +29,39 @@ Page({
       complete: function(res) {},
     })
   },
+  //获取赛事赞助
+  getSponsorList:function(){
+    var that = this;
+    wx.request({
+      url: 'http://test.tuolve.com/jingsai/web/api.php/Sponsor/spon_lists',
+      data: {
+        book_id:that.data.matchId
+      },
+      success: function(res) {
+        console.log(res);
+        if(res.data.status==10001){
+          that.setData({
+            sponsorList:res.data.lists
+          })
+        }else{
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none', 
+            duration: 1000,
+          })
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.setData({
-      currentTab:options.currentTab
+      currentTab:options.currentTab,
+      matchId:options.matchId
     })
+    this.getSponsorList();
   },
 
   /**

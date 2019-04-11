@@ -1,0 +1,75 @@
+/* pages/mallDetails/index.wxss */
+.container{
+  margin: 0;
+  padding: 0;
+}
+.content{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+.image{
+  display: flex;
+  width: 100%;
+  height: 10rem;
+  margin-bottom: 1rem;
+}
+.image image{
+  width: 100%;
+  height: 100%;
+}
+.text{
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  
+}
+.text .price{
+  font-size: 1.69rem;
+  color: #E60B30;
+  margin-bottom: 0.5rem;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+.text .title{
+  font-size: 1rem;
+  color: #101010;
+  margin-bottom: 0.5rem;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+.text .slogan{
+  font-size: 0.75rem;
+  color: #7C7C7C 100%;
+  margin-bottom: 1rem;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+.text .specification{
+  color: #666666;
+  font-size: 0.88rem;
+  border-top: 0.06rem #BBBBBB solid;
+  border-bottom: 0.06rem #BBBBBB solid;
+  padding: 0 0.5rem;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+.text .details{
+  color: #666666;
+  font-size: 0.88rem;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+.buy{
+  position: absolute;
+  bottom:0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.buy button{
+  width: 100%;
+  background: #E51C23;
+  color: #FFFFFF;
+}

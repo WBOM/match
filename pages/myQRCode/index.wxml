@@ -1,0 +1,8 @@
+<!--pages/myQRCode/index.wxml-->
+<view class='container'>
+  <view class='code'>
+  <view class='bg'>
+    <image src='../image/index.png'></image>
+  </view>  
+  </view>
+</view>

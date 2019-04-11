@@ -1,9 +1,15 @@
 <!--pages/fillInMatch/index.wxml-->
 <view class='container'>
   <view class='match-information'>
-      <text>组别：挑战组22公里（含参赛服）</text>
-      <text>时间：2019-03-17</text>
-      <text>报名费：￥ 198.0</text>
+    <view class='text'>
+      <text>组别：{{matchInformation.title}}</text>
+      <text>时间：{{matchInformation.game_starttime}}</text>
+      <text>报名费：￥{{price}}</text>
+    </view>
+    <view class='button'>
+      <button>邀请加入</button>
+      <button>邀请组队</button>
+    </view>
   </view>
   <view class='match-claim'>
     <text>报名要求</text>
@@ -27,7 +33,7 @@
             <view class="picker">
               {{competitionList[index]}}
             </view>
-            <i class="triangle"></i>
+            <icon class="triangle"></icon>
           </picker>
         </view>
         <view class="section">
@@ -36,7 +42,7 @@
             <view class="picker">
               {{lvList[lv]}}
             </view>
-            <i class="triangle"></i>
+            <icon class="triangle"></icon>
           </picker>
         </view>
         <view class="section">

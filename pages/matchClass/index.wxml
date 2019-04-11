@@ -1,25 +1,19 @@
 <!--pages/matchClass/index.wxml-->
 <view class='container'>
-  <!--列表-->
-  <view class='match-menu'>
-    <view class='match-menu-list'>
-      <text class='on'>推荐分类</text>
-      <text>乒乓球</text>
-      <text>羽毛球</text>
-      <text>网球</text>
+  <view class='content'>
+    <!--列表-->
+    <view class='match-menu'>
+      <view class='match-menu-list'>
+        <text class="{{tab==-1?'on':''}}" bindtap='goValue'>推荐分类</text>
+        <text class="{{tab==type.id?'on':''}}" bindtap='getTypeMatch' wx:for="{{raceType}}" data-type='{{type.id}}' wx:key='index' wx:for-item="type">{{type.title}}</text>
+      </view>
     </view>
-  </view>
-  <!--内容-->
-  <view class='match-list'>
-    <view class='match-list-box'>
-      <image src='../image/index.png' mode="scaleToFill" lazy-load="true"></image>
-      <text>2019中国牡丹之都菏泽职业篮球联赛即将开赛</text>
+    <!--内容-->
+    <view class='match-list'>
+      <view class='match-list-box' wx:for="{{matchLists}}" wx:for-item="matchList">
+        <image src='{{matchList.img_thumb}}' mode="scaleToFill" lazy-load="true"></image>
+        <text>{{matchList.title}}</text>
+      </view>
     </view>
-    <view class='match-list-box'></view>
-    <view class='match-list-box'>12121</view>
-    <view class='match-list-box'>12121</view>
-    <view class='match-list-box'>12121</view>
-    <view class='match-list-box'>12121</view>
-    <view class='match-list-box'>12121</view>
   </view>
 </view>

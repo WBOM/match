@@ -1,15 +1,33 @@
 <!--index.wxml-->
 <view class='container'>
+  <!--顶部通知-->
+  <view class='notice' wx:if="{{notice}}" bindtap=''>
+    <icon type="warn" size="40rpx" />
+    <text>您报名的2019 大理马{{pictureList}}拉松将于3月5日上午10点开始.....</text>
+    <icon class='clear' type='cancel' size='40rpx' bindtap='clearTop'></icon>
+  </view>
   <!--顶部图片-->
   <view class='title-img'>
-    <image src='../image/index.png' mode="scaleToFill" lazy-load="true"></image>
+    <swiper
+      indicator-dots="false"
+      autoplay="true"
+      interval="5000"
+      circular="true"
+      duration="700"
+    >
+      <block wx:for="{{imgUrls}}" wx:key="{{index}}" >
+        <swiper-item>
+          <image src="{{item.img_thumb}}" class="slide-image" bindtap=''/>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
   <!--比赛分类-->
   <view class='main'>
     <view class='main-list'>
-      <view class='main-list-box' wx:for="{{raceType}}"wx:key='index' wx:for-item="type" bindtap='goMatchClass'>
-        <image src='../image/icon-home.png' mode="scaleToFill"></image>
-        <text>{{type}}</text>
+      <view class='main-list-box' wx:for="{{raceType}}" wx:key='index' wx:for-item="type" bindtap='goMatchClass'>
+        <image src='{{type.img_orogin}}' mode="scaleToFill"></image>
+        <text>{{type.title}}</text>
       </view>
     </view>
   </view>
@@ -17,14 +35,10 @@
   <view class='recommend'>
     <text class='recommend-title'>推荐</text>
     <view class='recommend-list'>
-      <view class='recommend-list-box'>
-        <image src='../image/match-list-1.png' mode="scaleToFill" lazy-load="true"></image>
-        <text>哈哈哈哈哈哈哈哈哈哈或或或或或或或或或或或或或或或或或或或或或或或</text>
+      <view class='recommend-list-box' wx:for="{{recommendList}}" wx:for-item="recommend"  wx:key='index'>
+        <image src='{{recommend.img_thumb}}' mode="scaleToFill" lazy-load="true"></image>
+        <text>{{recommend.title}}</text>
       </view>
-      <view class='recommend-list-box'>2</view>
-      <view class='recommend-list-box'>3</view>
-      <view class='recommend-list-box'>4</view>
-      <view class='recommend-list-box'>5</view>
     </view>
   </view>
 </view>

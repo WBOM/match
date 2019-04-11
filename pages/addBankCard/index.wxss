@@ -1,0 +1,47 @@
+/* pages/addBankCard/index.wxss */
+.container{
+  margin: 0;
+  padding: 0;
+  background: #FFFFFF;
+}
+.bank-card{
+  display: flex;
+  flex-flow:  column nowrap;
+  width: 100%;
+  background: #FFFFFF;
+}
+.bank-card .section{
+  box-sizing: border-box;
+  height: 3rem;
+  line-height: 3rem;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  margin: 0.5rem auto;
+  border-bottom: 0.06rem #cccccc solid;
+}
+.section-title{
+  font-size: 0.88rem;
+  color: #101010;
+  flex: 1;
+}
+.section input{
+  font-size: 0.88rem;
+  flex: 2;
+}
+.title{
+  margin-top: 1rem;
+  padding: 0 1em;
+  font-size: 0.88rem;
+}
+.submit{
+  width: 100%;
+  background: #E51C23;
+  color: #FFFFFF;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  
+}

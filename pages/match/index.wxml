@@ -4,15 +4,15 @@
     <image src='../image/option-card-1.png' mode="scaleToFill"></image>
     <text id='Card1'>微赛</text>
   </view>
-  <view class='option-card'>
+  <view class='option-card' bindtap='goMicroRace'>
     <image src='../image/option-card-2.png' mode="scaleToFill"></image>
     <text id='Card2'>微赛圈</text>
   </view>
-  <view class='option-card'>
+  <view class='option-card' bindtap='goSponsor'>
     <image src='../image/option-card-3.png' mode="scaleToFill"></image>
     <text id='Card3'>微赞助</text>
   </view>
-  <view class='option-card'>
+  <view class='option-card' bindtap='goLive'>
     <image src='../image/option-card-4.png' mode="scaleToFill"></image>
     <text id='Card4'>直播</text>
   </view>

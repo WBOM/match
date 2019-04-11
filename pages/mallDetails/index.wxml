@@ -1,0 +1,19 @@
+<!--pages/mallDetails/index.wxml-->
+<view class='container'>
+  <view class='content'>
+    <view class='image'>
+      <image src='{{details.img_orogin}}'></image>
+    </view>
+    <view class='text'>
+      <text class='price'>￥{{details.shop_price}}</text>
+      <text class='title'>{{details.goods_name}}</text>
+      <text class='slogan'>韩国MBS/KBS/SBS三大电视台共同推荐！赴韩必买！NMF天然保湿因子强力补水，</text>
+      <text class='specification'>规格:{{details.goods_attr
+}}</text>
+      <text class='details'>商品详情:</text>
+    </view> 
+  </view>
+  <view class='buy'>
+    <button>购买</button>
+  </view>
+</view>

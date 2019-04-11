@@ -1,0 +1,290 @@
+/* pages/initiatedEvent/index.wxss */
+.container{
+  margin: 0;
+  padding: 0;
+  background: #FFFFFF;
+}
+.main{
+  width: 100%;
+}
+.main form{
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  padding:1rem;
+  box-sizing: border-box;
+  padding-bottom: 3.5rem;
+}
+.section{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1.5rem;
+}
+.section-title{
+  font-size: 1rem;
+  color: #666666;
+  margin-bottom: 0.8rem;
+}
+.type-event,.title-event,.host-name{
+  margin: 0 1rem;
+  border: 0.06rem #BBBBBB solid;
+  border-radius: 0.25rem;
+  padding: 0.2rem;
+  color: #666666;
+  font-size: 0.88rem;
+}
+.type-event .triangle,.type-competition .triangle{
+  right: 3rem;
+  margin-top: -0.8rem;
+}
+.section .date{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 1rem;
+}
+.section .date picker{
+  border: 0.06rem #BBBBBB solid;
+  border-radius: 0.25rem;
+  padding: 0.2rem;
+  flex: 2;
+}
+.section .date text{
+  text-align: center;
+  flex: 1;
+}
+.location{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 2rem;
+  line-height: 2rem;
+  margin: 0 1rem;
+}
+.location input{
+  border: 0.06rem #BBBBBB solid;
+  border-radius: 0.25rem;
+  padding: 0.2rem;
+  margin-right: 0.5rem;
+}
+.select{
+  font-size: 0.88rem;
+  padding: 0.1rem;
+  height: 2rem;
+  width: 4.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.type-competition{
+  margin: 0 1rem;
+  border: 0.06rem #BBBBBB solid;
+  border-radius: 0.25rem;
+  padding: 0.2rem;
+  color: #666666;
+  font-size: 0.88rem;
+}
+/***********************/
+.project-list{
+  display: flex;
+  flex-flow: column nowrap;
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 0.06rem #EEEEEE solid;
+}
+.project-name{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.project-title{
+  font-size: 1rem;
+  color: #666666;
+  margin-bottom: 0.5rem;
+}
+.project-name input{
+  margin: 0 1rem;
+  border: 0.06rem #BBBBBB solid;
+  border-radius: 0.25rem;
+  padding: 0.2rem;
+  color: #666666;
+  font-size: 0.88rem;
+}
+.project-box{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 0 0.6rem;
+  box-sizing: border-box;
+  color: #666666;
+}
+.project-box .title{
+  font-size: 0.88rem;
+  flex: 1;
+}
+.project-box input{
+  width: 8rem;
+  border: 0.06rem #BBBBBB solid;
+  border-radius: 0.25rem;
+  padding: 0.2rem;
+  flex: 1;
+}
+.project-box picker{
+  border: 0.06rem #BBBBBB solid;
+  border-radius: 0.25rem;
+  padding: 0.2rem;
+  width: 8.7rem;
+  flex: 1.13;
+}
+.project-box{
+  flex: 0;
+}
+.project-box .triangle{
+  right: 2.2rem;
+}
+.add-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 0.6rem;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+.add-item button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.88rem;
+  padding: 0.1rem;
+  width: 6rem;
+  height: 2rem;
+}
+/***********/
+.host{
+  display: flex;
+  width: 100%;
+}
+.host-name{
+  margin: 0 auto;
+  width: 90%;
+  box-sizing: content-box;
+  border: 0.06rem #BBBBBB solid;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  color: #666666;
+  font-size: 0.88rem;
+}
+/******相册******/
+.album{
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.album text{
+  font-size: 1rem;
+  color: #666666;
+  margin-bottom: 0.5rem;
+}
+.album-box{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0.5rem;
+}
+.album-box image{
+  width: 8.31rem;
+  height: 8.31rem;
+  margin-bottom: 0.5rem;
+  background: #F4F4F4;
+}
+/*****视频*****/
+.video{
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.video text{
+  color: #666666;
+  font-size: 1rem;
+  margin:  0.5rem 1rem;
+}
+.video video{
+  display: flex;
+  margin: 0.5rem auto;
+  width: 16rem;
+  height: 10.69rem;
+  border-radius: 0.5rem;
+}
+.addVideo{
+  display: flex;
+  width: 100%;
+}
+.addVideo button{
+  border: 0.06rem #BBBBBB solid;
+  color: #666666;
+  font-size: 0.88rem;
+}
+/*************规则****************/
+.rule{
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+}
+.rule textarea{
+  display: flex;
+  margin: 0 auto;
+  width: 90%;
+  box-sizing: content-box;
+  padding: 0.5rem;
+  border: 0.06rem #BBBBBB solid;
+  border-radius: 0.25rem;
+  color: #666666;
+  font-size: 0.88rem;
+}
+/**********底部支付***************/
+.cost{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  padding-left: 1rem;
+  box-sizing: border-box; 
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.06rem #BBBBBB solid;
+  border-top: 0.06rem #BBBBBB solid;
+  background: #FFFFFF;
+  z-index: 2;
+}
+.cost view:first-child{
+  font-size: 0.88rem;
+}
+.cost .price{
+  color: #E51C23;
+  margin-left: 0.5rem;
+}
+.cost  button{
+  width: 9.75rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  background: #E51C23;
+  border-radius: 0;
+}

@@ -2,7 +2,7 @@
 .container{
   margin: 0;
   padding: 0;
-  background: #F4F8FB;
+  background: #FFFFFF;
   color: #101010;
 }
 .container form{
@@ -10,7 +10,6 @@
   flex-flow: column nowrap;
   width: 100%;
   margin-top: 3rem;
-  background: #F4F8FB;
 }
 .section{
   margin: 2rem 2rem;
@@ -35,7 +34,6 @@
 /******************验证码********************/
 .verificationCode{
   position: absolute;
-  display: block;
   margin-top: -0.5rem;
   font-size: 0.78rem;
   right: 2rem;

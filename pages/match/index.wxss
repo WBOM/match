@@ -1,7 +1,8 @@
 /* pages/match/match.wxss */
 .container{
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem 2rem;
+  background: #F4F8FB;
 }
 .option-card{
   margin-bottom: 0.5rem;

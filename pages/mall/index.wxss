@@ -1,0 +1,237 @@
+/* pages/mall/index.wxss */
+page{
+  background: #F4F8FB;
+}
+.container{
+  margin: 0;
+  padding: 0;
+}
+.sponsor-information{
+  width: 100%;
+  height: 9.38rem;
+  display: flex;
+  flex-flow: row nowrap;
+  background: #FFFFFF;
+  align-items: center;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+.photo{
+  height: 100%;
+  margin: 0.5rem;
+}
+.photo image{
+  margin-top: 1rem;
+  width: 3.31rem;
+  height: 3.31rem;
+  border-radius: 50%;
+}
+.content{
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 1rem;
+}
+.content .name{
+  font-size: 0.88rem;
+  margin-bottom: 0.5rem;
+}
+.content .text{
+  font-size: 0.75rem;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:5;
+  text-overflow:ellipsis;
+  overflow: hidden;
+}
+.order-text{
+  width: 100%;
+  height: 2.5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+.commodity-list{
+  display: flex;
+  flex-flow: column nowrap;
+}
+.commodity-box{
+  width: 100%;
+  height: 7rem;
+  display: flex;
+  margin: 0;
+  box-sizing: border-box;
+  flex-flow: row nowrap;
+  background: #FFFFFF;
+  overflow: hidden;
+  padding: 0rem 0.5rem;
+  margin-bottom: 1rem;
+}
+.commodity-box::before{
+  position: absolute;
+  left: 5%;
+  margin-top: 0.5rem;
+  content: '';
+  border-top: 0.06rem rgb(219, 219, 219) solid;
+  width: 90%;
+  height: 0.5rem;
+}
+.commodity-box::after{
+  position: absolute;
+  left: 5%;
+  margin-top: 6.5rem;
+  content: '';
+  border-top: 0.06rem rgb(219, 219, 219) solid;
+  width: 90%;
+  height: 0.5rem;
+}
+.commodity-box label{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+.commodity-box .image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image image{
+  width: 5rem;
+  height: 5rem;
+}
+.content{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  margin-left: 0.5rem;
+}
+.content .title{
+  font-size: 0.75rem;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  text-overflow:ellipsis;
+  overflow: hidden;
+}
+.price-box{
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+} 
+.price{
+  width: 5rem;
+}
+/**************************/
+/*主容器*/
+.stepper {
+	width: 4rem;
+	height: 1.4rem;
+	border: 0.06rem solid #ccc;
+	border-radius: 0.25rem;
+}
+ 
+/*加号和减号*/
+.stepper text {
+	width: 0.95rem;
+	line-height: 1.4rem;
+	text-align: center;
+	float: left;
+}
+ 
+/*数值*/
+.stepper input {
+	width: 1.9rem;
+	height: 1.4rem;
+	float: left;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 0.75rem;
+	/*给中间的input设置左右边框即可*/
+	border-left: 0.06rem solid #ccc;
+	border-right: 0.06rem solid #ccc;
+}
+ 
+/*普通样式*/
+.stepper .normal{
+	color: black;
+}
+ 
+/*禁用样式*/
+.stepper .disabled{
+	color: #ccc;
+}
+.settle-accounts{
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background: #E51C23;
+  color: #FFFFFF;
+}
+.other{
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  padding: 0 0.5rem 3rem;
+  box-sizing: border-box;
+}
+.other-text{
+  height: 2rem;
+  font-size: 0.88rem;
+}
+.other-list{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+}
+.other-box{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  height: 12.31rem;
+  width: 48%;
+  background: #FFFFFF;
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+  margin-bottom: 1rem;
+}
+.other-box .image{
+  width: 100%;
+  height: 8.88rem;
+  display: flex;
+}
+.other-box .image image{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+}
+.other-box .title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.2rem;
+  margin-top: 0.2rem;
+  box-sizing: border-box;
+  height: 3rem;
+  font-size: 0.75rem;
+}
+.other-box .title text{
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  text-overflow:ellipsis;
+  overflow: hidden;
+}

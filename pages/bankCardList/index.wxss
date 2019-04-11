@@ -1,0 +1,56 @@
+/* pages/bankCardList/index.wxss */
+page{
+  background: #F4F8FB;
+}
+.container{
+  margin: 0;
+  padding: 0;
+}
+.bank-card{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  width: 100%;
+  height: 3.2rem;
+  border-top: 0.06rem #DDDDDD solid;
+  border-bottom: 0.06rem #DDDDDD solid;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  background: #FFFFFF;
+}
+.bank-card-photo image{
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+}
+.bank{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  flex: 1;
+  margin-left: 0.5rem;
+}
+.bank-name{
+  font-size: 1rem;
+  color: #101010;
+}
+.card-number{
+  font-size: 0.88rem;
+  color: #5A5A5A;
+}
+.next{
+  padding: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  box-sizing: border-box;
+}
+.add{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #E51C23;
+  color: #FFFFFF;
+  border-radius: 0;
+}

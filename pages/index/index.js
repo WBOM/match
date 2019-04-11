@@ -1,10 +1,18 @@
 //index.js
 //获取应用实例
-const app = getApp()
-
+var  app=getApp()
 Page({
   data: {
-    raceType: ["篮球", "羽毛球", "乒乓球", "排球", "网球", "足球", "溜溜球","棒球","小皮球","精灵球"]
+    raceType: [],
+    notice:true,
+    imgUrls: {},
+    pictureList:[],
+    recommendList:[],
+  },
+  clearTop:function(){
+    this.setData({
+      notice:false,
+    })
   },
   //跳转到赛事列表页面
   goMatchClass:function(){
@@ -12,24 +20,20 @@ Page({
       url: '../matchClass/index'
     })
   },
-  
   //事件处理函数
   bindViewTap: function() {
 
   },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
   onLoad: function () {
-    //获取页面分类列表
-    wx.request({
-      url: '', // 仅为示例，并非真实的接口地址
-      data: {
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success(res) {
-        console.log(res.data)
-      }
-    })
+    this.getPropList();
+    this.getMatchClass();
+    this.getRecommend();
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -38,5 +42,65 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+  //获取主页轮播图
+  getPropList:function(){
+    var that=this;
+    wx.request({
+      url: 'http://test.tuolve.com/jingsai/web/api.php/Ad/lists',
+      data: {},
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log('轮播' + res.data.lists)
+        that.setData(
+          {
+            imgUrls: res.data.lists
+          }
+        )
+      }
+    })
+  },
+  //获取赛事种类
+  getMatchClass: function () {
+    var that=this;
+    wx.request({
+      url: 'http://test.tuolve.com/jingsai/web/api.php/BookCategory/lists',
+      data: {},
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log('赛事种类' + res.data)
+        that.setData(
+          {
+            raceType: res.data.data
+          }
+        )
+      }
+    })
+  },
+   //主页推荐
+  getRecommend:function(){
+    var that=this;
+    wx.request({
+      url: 'http://test.tuolve.com/jingsai/web/api.php/BookInfo/lists',
+      data: {},
+      method: 'POST',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log('推荐' + res.data)
+        that.setData(
+          {
+            recommendList: res.data.lists
+          }
+        )
+      }
+    })
+  }  
 })

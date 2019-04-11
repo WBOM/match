@@ -15,6 +15,33 @@ Page({
       url: '../matchList/index'
     })
   },
+  //跳转到微赛圈
+  goMicroRace:function(){
+    wx.navigateTo({
+      url: '../microRace/index',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+  //跳转到微赞助
+  goSponsor:function(){
+    wx.navigateTo({
+      url: '../sponsor/index',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+  //跳转到直播
+  goLive:function(){
+    wx.navigateTo({
+      url: '../live/index',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

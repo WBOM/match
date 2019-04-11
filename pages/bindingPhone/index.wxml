@@ -1,0 +1,30 @@
+<!--pages/bindingPhone/index.wxml-->
+<view class='container'>
+  <form class='binding-phone' bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <image src='../image/icon_people.png'></image>
+      <input name="name" placeholder="请输入姓名" />
+    </view>
+    <view class="section">
+      <image src='../image/icon_phone.png'></image>
+      <input name="phone" placeholder="请输入手机号" />
+    </view>
+    <view class="section">
+      <image src='../image/icon_safety.png'></image>
+      <input name="yzm" placeholder="请输入验证码" />
+      <button bindtap='goSend'>获取验证码</button>
+    </view>
+    <view class='pact'>
+      <checkbox-group name="checkbox">
+        <label>
+          <checkbox value="checkbox1" />
+           勾选同意<text>《用户协议》</text>
+        </label>
+      </checkbox-group>
+      <view>
+       
+      </view>
+    </view>
+    <button class='submit' form-type='submit'>绑定</button>
+  </form>
+</view>

@@ -8,77 +8,70 @@
     </view>
     <!--赛事分类-->
     <view class='sort-title'>
-      <view class='sort-title-box' name="class" bindtap='classShow'>
-        <text>分类</text>
-        <i class="triangle"></i>
+      <view class='sort-title-box' name="class">
+        <text bindtap='classShow' data-current='1'>分类</text>
+        <icon class="triangle"></icon>
       </view>
-      <view class='sort-title-box'>
+      <view class='sort-title-box' data-current="2">
         <text>日期</text>
-        <i class="triangle"></i>
+        <icon class="triangle"></icon>
         </view>
-      <view class='sort-title-box'>
+      <view class='sort-title-box' data-current="3">
         <text>地区</text>
-        <i class="triangle"></i>
-      </view>
-      <view class='sort-title-box'>
-        <text>状态</text>
-        <i class="triangle"></i>
-      </view>
-      <view class='sort-title-box'>
-        <text>筛选</text>
-        <i class="triangle"></i>
+        <icon class="triangle"></icon>
       </view>
     </view>
   </view>
   <!--下拉显示-->
-  <view class="show-box {{box?'show':'hide'}}">
-    <text>111</text>
-    <text>1121</text>
-    <text>111</text>
+  <view class="show-box {{currentTab == 1 ?'show':'hide'}}">
+    <button wx:for="{{raceType}}" wx:for-item="type" wx:key='index' data-type='{{type.id}}'  bindtap='getMatchTypeLists'>{{type.title}}</button>
   </view>
-  <view class='cover1' wx:if="{{box}}"  bindtap='hideModal' catchtouchmove="move"></view>
+  <!--遮罩-->
+  <view class='cover1' wx:if="{{box}}" bindtap='hideModal' catchtouchmove="move"></view>
+  <!--内容-->
   <view class='main'>
-    <view class='main-box'>
-      <image src='../image/match-list-1.png' mode='scaleToFill' lazy-load="true" bindtap='goMatchDetails'></image>
+    <view class='main-box' wx:for="{{matchLists}}" wx:key='index' wx:for-item="matchList">
+      <image src='{{matchList.img_orogin}}' mode='scaleToFill' lazy-load="true" bindtap='goMatchDetails' data-matchid='{{matchList.id}}'></image>
       <view class='main-box-content'>
-        <text class='title' bindtap='goMatchDetails'>2019中国牡丹之都荷泽国际马拉松2019中国牡丹之都荷泽国际马拉松</text>
-        <text class='time' bindtap='goMatchDetails'>2019-04-07</text>
-        <text class='place' bindtap='goMatchDetails'>山东省  荷泽市</text>
+        <text class='title' bindtap='goMatchDetails' data-matchid='{{matchList.id}}'>{{matchList.title}}</text>
+        <text class='time' bindtap='goMatchDetails' data-matchid='{{matchList.id}}'>{{matchList.endtime}}</text>
+        <text class='place' bindtap='goMatchDetails' data-matchid='{{matchList.id}}'>{{matchList.weizhi}}</text>
         <view class='main-box-content-bottom'>
           <!--费用-->
           <view class='cost'>
             报名费:
-            <text>12121元</text>
+            <text>{{matchList.price}}元</text>
           </view>
           <!--状态-->
           <view class='state'>
             <!--二者只能有一-->
-            <text wx:if="{{selectEvent}}">报名中...</text>
-            <button wx:if="{{!selectEvent}}" bindtap='selectEvent'>一键报名</button>
+            <text wx:if="{{matchList.id==matchId}}">报名中...</text>
+            <button wx:if="{{matchList.id!=matchId}}" data-matchid='{{matchList.id}}' bindtap='selectEvent' >一键报名</button>
           </view>
         </view>
       </view>
     </view>
-    <view class='main-box'>1</view>
-    <view class='main-box'>1</view>
-    <view class='main-box'>1</view>
-    <view class='main-box'>1</view>
-    <view class='main-box'>1</view>
-    <view class='main-box'>1</view>
   </view>
-  <view class='release'>发布</view>
+  <view class='release' bindtap='goInitiatedEvent'>发布</view>
   <!--报名选项卡-->
   <view class='cover' wx:if="{{selectEvent}}"  bindtap='hideModal' catchtouchmove="move"></view>
   <view class='select' wx:if="{{selectEvent}}" animation='{{animationData}}'>
   <icon type="clear" size="45rpx" bindtap='hideModal' />
   <scroll-view class="selectList" scroll-y="true">
-    <checkbox-group>
-      <label wx:for="{{selectLists}}" wx:for-item="select" data-index="{{index}}" bindtap="selectList">
+  <!--<checkbox-group>
+      <label wx:for="{{selectLists}}" wx:for-item="select" data-index="{{index}}" bindtap="goSelectList">
         <checkbox value="{{select.name}}" checked="{{select.selected}}"></checkbox>
-        <text class='selectText'>{{select.value}}</text>
-        <text class='selectPrice'>￥{{select.price}}</text>
+        <text class='selectText'>{{select.team_name}}</text>
+        <text class='selectPrice'>￥{{select.team_price}}</text>
       </label>
-    </checkbox-group>
+    </checkbox-group>-->
+    <radio-group class="radio-group">
+      <label wx:for="{{selectLists}}" wx:for-item="select"  data-index="{{index}}"bindtap='goSelectList'>
+        <radio color='#E51C23' checked="{{index==0?'true':''}}" ></radio>
+        <text class='selectText'>{{select.team_name}}</text>
+        <text class='selectPrice'>￥{{select.team_price}}</text>
+      </label>
+    </radio-group>
   </scroll-view>
   <view class='totalPrice'>
     <text>￥{{totalPrice}}</text>

@@ -1,0 +1,103 @@
+/* pages/myFocus/index.wxss */
+page{
+  background: #F9F9F9;
+}
+.container{
+  margin: 0;
+  padding: 0;
+}
+.match-list{
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.match-box{
+  width: 100%;
+  height: 7.69rem;
+  display: flex;
+  flex-flow:  column nowrap;
+  padding:  0 1rem;
+  box-sizing: border-box;
+  box-shadow: 0rem 0rem 0.13rem 0rem rgba(226, 226, 226);
+  margin: 0 0 1rem;
+  background: #ffffff;
+}
+.time{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 100%;
+  height: 2rem;
+  font-size: 0.88rem;
+}
+.content{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+.content .photo{
+  display: flex;
+  margin-right: 0.5rem;
+  width: 7rem;
+  height: 5rem;
+  padding: 0.2rem;
+  box-sizing: border-box;
+}
+.photo image{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.content .text{
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 0.88rem;
+  color: #101010;
+}
+.text .title{
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:1;
+  text-overflow:ellipsis;
+  overflow: hidden;
+  margin-bottom: 0.2rem;
+}
+.content .address{
+  font-size: 0.75rem;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  text-overflow:ellipsis;
+  overflow: hidden;
+  margin-bottom: 0.2rem;
+}
+.content .project{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.attention{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 1.8rem;
+  padding: 0;
+  font-size: 0.88rem;
+  background: #E51C23;
+  color: #ffffff;
+}
+.has-been-attention{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 1.8rem;
+  padding: 0;
+  font-size: 0.88rem;
+}

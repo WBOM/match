@@ -1,0 +1,35 @@
+<!--pages/myMicroRace/index.wxml-->
+<view class='container'>
+  <view class='dynamic-list'>
+    <view class='dynamic-box' wx:for="{{raceList}}" wx:for-item="race" wx:key="{{index}}">
+      <view class='head'>
+        <view class='date'>
+          <text>{{race.showtime}} 发布</text>
+        </view>
+        <view class='attention'>
+          <text>666</text>
+          <image src='../image/before-attention.png'></image>
+        </view>
+      </view>
+      <view class='main'>
+        <image src='{{race.gallery[0]}}'></image>
+        <text>{{race.title}}</text>
+      </view>
+    </view>
+    <view class='dynamic-box'>
+      <view class='head'>
+        <view class='date'>
+          <text>19年1月 发布</text>
+        </view>
+        <view class='attention'>
+          <text>666</text>
+          <image src='../image/before-attention.png'></image>
+        </view>
+      </view>
+      <view class='main'>
+        <image src='../image/index.png'></image>
+        <text>你也许听过关于洛杉矶的无数个传说，星光大道的闪耀辉煌，环球影城的好莱坞之梦，66号公路的心驰神往11111111111111111.</text>
+      </view>
+    </view>
+  </view>
+</view>

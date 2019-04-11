@@ -1,0 +1,109 @@
+/* pages/withdraw/index.wxss */
+page{
+  background-color: #F4F8FB;
+}
+.container{
+  margin: 0;
+  padding: 0;
+  background: #F4F8FB;
+}
+.bank-card{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  width: 100%;
+  height: 3.2rem;
+  border-top: 0.06rem #DDDDDD solid;
+  border-bottom: 0.06rem #DDDDDD solid;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  background: #FFFFFF;
+}
+.bank-card-photo image{
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+}
+.bank{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  flex: 1;
+  margin-left: 0.5rem;
+}
+.bank-name{
+  font-size: 1rem;
+  color: #101010;
+}
+.card-number{
+  font-size: 0.88rem;
+  color: #5A5A5A;
+}
+.next{
+  padding: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  box-sizing: border-box;
+}
+.amount-box{
+  width: 100%;
+  height: 6.63rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  border-top: 0.06rem #DDDDDD solid;
+  border-bottom: 0.06rem #DDDDDD solid;
+  background: #FFFFFF;
+
+}
+.amount-box .text{
+  font-size: 0.88rem;
+  color: #666666;
+  margin-bottom: 0.5rem;
+}
+.amount{
+  font-size: 1.5rem;
+  height: 4rem;
+  line-height: 4rem;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.amount text{
+  width: 2rem;
+  height: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 0.06rem #EDF1FE solid;
+}
+.amount input{
+  margin-left: 0.5rem;
+}
+.amount-available{
+  display: flex;
+  width: 100%;
+  height: 2.38rem;
+  line-height: 2.38rem;
+  justify-content: space-between;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  font-size: 0.88rem;
+  color: #E51C23;
+  background: #FFFFFF;
+  border-bottom: 0.06rem #DDDDDD solid;
+}
+.amount-available text:first-child{
+  color: #888888;
+}
+.withdraw{
+  width: 100%;
+  margin: 2rem 0 0;
+  background: #E51C23;
+  color: #FFFFFF;
+}

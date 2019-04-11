@@ -1,0 +1,26 @@
+<!--pages/manageClass/index.wxml-->
+<view class='container'>
+  <form bindsubmit="formSubmit">
+    <view class='head'>
+      <view class="section">
+        <input name="name" placeholder="请输入名称"/>
+      </view>
+      <view class='confirm'>
+        <button form-type='submit'>确定</button>
+      </view>
+    </view>
+  </form>
+
+  <view class='main'>
+
+    <view class='class-box' wx:for="{{classList}}" wx:key="{{index}}" wx:for-item="class">
+      <view class='title'>
+        <text>{{class.cate_name}}</text>
+      </view> 
+      <view class='operating'>
+        <text class='modify'>修改</text>
+        <text class='delete'>删除</text>
+      </view>
+    </view>
+  </view>
+</view>

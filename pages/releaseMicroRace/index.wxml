@@ -1,0 +1,17 @@
+<!--pages/releaseMicroRace/index.wxml-->
+<view class='container'>
+  <view class='content'>
+    <view class="textarea-wrp">
+      <textarea bindblur="bindTextAreaBlur" placeholder="分享新鲜事..." auto-focus auto-height />
+    </view>
+    <view class='photos'>
+      <view class='photos-box'>
+        <image src='{{photos[index]}}' wx:for="{{photos}}" wx:key="{index}"></image>
+        <image src='../image/camera.png' bindtap='addPhotos' mode="aspectFill"></image>
+      </view>
+    </view>
+    <view class='release'>
+      <button class='Release' bindtap='goRelease'>发布</button>
+    </view>
+  </view>
+</view>

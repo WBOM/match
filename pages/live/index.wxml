@@ -1,0 +1,8 @@
+<!--pages/live/index.wxml-->
+<view class='container'>
+  <view>
+    <text class="link" selectable="true">{{link}}</text> <!-- 复制的对象-->
+    <button class="tblin_items_btn" bindtap="copyTBL">一键复制</button><!-- 复制操作 -->
+  </view>
+  
+</view>

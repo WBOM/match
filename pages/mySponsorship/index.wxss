@@ -1,0 +1,27 @@
+/* pages/mySponsorship/index.wxss */
+.container{
+  margin: 0;
+  padding: 0;
+  background: #FFFFFF 100%;
+}
+.sponsor-list{
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.sponsor-box{
+  height: 5.75rem;
+  margin: 1rem 1rem 0;
+  box-shadow: 0 0 2.13rem 0 #D4D4D4;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  font-size: 0.88rem;
+  color: #101010;
+  box-sizing: border-box;
+}
+.sponsor-box .name{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}

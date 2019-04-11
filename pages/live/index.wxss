@@ -1,0 +1,17 @@
+/* pages/live/index.wxss */
+.container{
+  margin: 0;
+  padding: 0;
+  background: #F4F8FB;
+}
+.link{
+  display: flex;
+  width: 100%;
+  margin: 1rem;
+}
+button{
+  background: #E51C23;
+  color: #FFFFFF;
+  height: 2rem;
+  line-height: 2rem;
+}

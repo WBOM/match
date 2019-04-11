@@ -1,9 +1,189 @@
 <view class='container'>
-  <view>
-    <text>总参与人数：10人</text>
-    <text>A组 （共3组）</text>
-    <text>出线人数：4</text>
-    <text>罗湖体育馆</text>
+  <view class='header'>
+    <text>总参与人数：{{basicList.team_zrs}}人</text>
+    <text>组别:A组 （共3组）</text>
+    <text>出线人数：{{basicList.cxrs}}人</text>
+    <text>场地：{{basicList.weizhi}}</text>
   </view>
-  <view class='time'>1212</view>
+  <view class='time'>
+    <text>下一场比赛时间：</text>
+    <text>2019年3月27日</text>
+  </view>
+  <view class='main'>
+    <view class="section">
+      <view class="section-title">小组赛：</view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+            {{array[index]}}
+        </view>
+        <icon class='triangle'></icon>
+      </picker>
+    </view>
+    <view class="rank {{currentTab == 0 ? 'show':'hidden'}}">
+      <!--rank-->
+      <view class='rank-list'>
+        <text>小组排名</text>
+        <view>
+          <text>张一 </text>
+          <text>90分</text>
+          <text>第一名</text>
+        </view>
+        <view>
+          <text>张二 </text>
+          <text>80分</text>
+          <text>第二名</text>
+        </view>
+        <view>
+          <text>张三 </text>
+          <text>70分</text>
+          <text>第三名</text>
+        </view>
+      </view>
+      <!--对抗信息-->
+      <view class='vs-list'>
+        <view class='vs-box'>
+          <text class='score'>3 : 4</text>
+          <view class='player'>
+            <text>张三</text>
+            <text>vs</text>
+            <text>李四</text>
+          </view>
+          <view class='vs-information'>
+            <text>时间：2019：03：12</text>
+            <text>等待对方确认</text>
+          </view>
+        </view>
+        <view class='vs-box'>
+          <form bindsubmit="formSubmit" bindreset="formReset">
+            <view class='score'>
+              <view class="section">
+                <input name="leftScore" type='number' placeholder="0" />
+                <text>：</text>
+                <input name="rightScore" type='number' placeholder="0" />
+              </view>
+            </view>
+            <view class='player'>
+              <text>张三</text>
+              <text>vs</text>
+              <text>李四</text>
+            </view>
+            <view class='vs-information'>
+              <view class="section-title">时间：</view>
+              <view class="section-date">
+                <picker name="date" class='date' mode="date" value="{{date}}" start="2019-01-01" bindchange="bindDateChange">
+                  <view class="picker">
+                    {{date}}
+                  </view>
+                </picker>
+              </view>
+              <view class="section-time">
+                <picker name="time" mode="time" class='time' value="{{time}}" start="00：00" end="23:59" bindchange="bindTimeChange">
+                  <view class="picker">
+                    {{time}}
+                  </view>
+                </picker>
+              </view>
+              <button form-type='submit'>确认</button>
+            </view>
+          </form>
+        </view>
+        <view class='vs-box'>
+          <text class='score'>3 : 4</text>
+          <view class='player'>
+            <text>张三</text>
+            <text>vs</text>
+            <text>李四</text>
+          </view>
+          <view class='vs-information'>
+            <text>时间：</text>
+            <text>已确认</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="rank {{currentTab == 1 ? 'show':'hidden'}}">
+      <!--rank-->
+      <view class='rank-list'>
+        <text>小组排名</text>
+        <view>
+          <text>张一 </text>
+          <text>90分</text>
+          <text>第一名</text>
+        </view>
+        <view>
+          <text>张二 </text>
+          <text>80分</text>
+          <text>第二名</text>
+        </view>
+        <view>
+          <text>张三 </text>
+          <text>70分</text>
+          <text>第三名</text>
+        </view>
+      </view>
+      <!--对抗信息-->
+      <view class='vs-list'>
+        <view class='vs-box'>
+          <text class='score'>3:4</text>
+          <view class='player'>
+            <text>张三</text>
+            <text>vs</text>
+            <text>李四</text>
+          </view>
+          <view class='vs-information'>
+            <text>时间：</text>
+            <text>等待对方确认</text>
+          </view>
+        </view>
+        <view class='vs-box'>
+          <text class='score'>3:4</text>
+          <view class='player'>
+            <text>张三</text>
+            <text>vs</text>
+            <text>李四</text>
+          </view>
+          <view class='vs-information'>
+            <text>时间：</text>
+            <text>等待对方确认</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="rank {{currentTab == 2 ? 'show':'hidden'}}">
+      <!--rank-->
+      <view class='rank-list'>
+        <text>小组排名</text>
+        <view>
+          <text>张一 </text>
+          <text>90分</text>
+          <text>第一名</text>
+        </view>
+        <view>
+          <text>张二 </text>
+          <text>80分</text>
+          <text>第二名</text>
+        </view>
+        <view>
+          <text>张三 </text>
+          <text>70分</text>
+          <text>第三名</text>
+        </view>
+      </view>
+      <!--对抗信息-->
+      <view class='vs-list'>
+        <view class='vs-box'>
+          <text class='score'>3:4</text>
+          <view class='player'>
+            <text>张三</text>
+            <text>vs</text>
+            <text>李四</text>
+          </view>
+          <view class='vs-information'>
+            <text>时间：</text>
+            <text>等待对方确认</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

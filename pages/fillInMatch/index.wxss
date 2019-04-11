@@ -8,16 +8,39 @@
   display: flex;
   width: 100%;
   line-height: 1rem;
-  flex-flow: column nowrap;
-  margin: 1rem 0;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 1rem;
+  box-sizing: border-box;
   font-size: 0.78rem;
   border-bottom: 0.06rem #abbbbb solid;
   color: #101010;
 }
-.match-information text{
+.match-information .text{
   display: flex;
-  margin-left: 1rem;
+  flex-flow:  column nowrap;
+}
+.text text{
+  display: flex;
   margin-bottom: 1rem;
+}
+.match-information .button{
+  display: flex;
+  margin-right: 1rem;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.match-information .button button{
+  width: 3.75rem;
+  height: 1.7rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #E51C23;
+  color: #FFFFFF;
+  font-size: 0.7rem;
 }
 /******************报名要求*********************/
 .match-claim{
@@ -75,15 +98,8 @@
   color: #E51C23;
 }
 .triangle{
-  display: block;
-  position: absolute;
   right: 10%;
-  margin-top: -1rem;
-  height: 0;
-  width: 0;
-  border-left: 0.25rem solid transparent;
-  border-right: 0.25rem solid transparent;
-  border-top: 0.5rem solid #666666;
+  margin-top: -1.2rem;
 }
 .entry-information form button{
   margin-top: 1rem;

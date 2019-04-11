@@ -1,0 +1,37 @@
+<!--pages/sponsor/index.wxml-->
+<view class='container'>
+  <view class='search'>
+    <view class='search-box'>
+      <icon size="41rpx" type='search'></icon>
+      <input placeholder="搜索产品/商家" bindblur="goSearch" bindconfirm="goSearch" confirm-type="search" value="{{searchValue}}"></input>
+      
+    </view>
+    <view class='commodity'>
+        <button  bindtap='goCommodity'>商品</button>
+      </view>
+    
+  </view>
+  <view class="search-no" wx:if="{{!centent_Show}}">
+    <text>很抱歉,没有找到您要搜索的资料/(ㄒoㄒ)/~~</text>
+  </view> 
+  <view class='sponsor-list' wx:if="{{centent_Show}}">
+    <view class='sponsor-box' bindtap='goMall' wx:for="{{sponsorList}}" wx:for-item="sponsor" wx:key="{{index}}">
+      <view>
+        <image src='{{sponsor.img_thumb}}'></image>
+      </view>
+      <view>
+        <text class='title'>{{sponsor.username}}</text>
+        <text class='text'>{{sponsor.summary}}</text>
+      </view>
+    </view>
+    <view class='sponsor-box'  bindtap='goMall'>
+      <view>
+        <image src='../image/index.png'></image>
+      </view>
+      <view>
+        <text class='title'>美凯伦专卖店品牌直采</text>
+        <text class='text'>美凯龙连续5年跻身中国民营企业500自1986年创业以自1986年创业以来，始终以建设温馨、和谐的家园美凯龙连续5年跻身中国民营企业500自1986年创业以自1986年创业以来，始终以建设温馨、和谐的家园</text>
+      </view>
+    </view>
+  </view>
+</view>

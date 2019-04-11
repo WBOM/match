@@ -1,0 +1,30 @@
+/* pages/transfer/index.wxss */
+.container{
+  margin: 0;
+  padding: 0;
+}
+.section{
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  font-size: 1rem;
+}
+.section input{
+  border-bottom: 0.06rem #bbbbbb solid;
+  margin-left: 0.5rem;
+  font-size: 0.88rem;
+}
+.submit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #E51C23;
+  color: #FFFFFF;
+}

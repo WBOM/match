@@ -1,0 +1,41 @@
+<!--pages/addAddress/index.wxml-->
+<view class='container'>
+  <view class='content'>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="section" >
+        <view class="section-title">收货人</view>
+        <input name="name" placeholder="请填写收货人姓名" />
+      </view>
+      <view class="section">
+        <view class="section-title">手机号码</view>
+        <input name="phone" placeholder="请填写收货人手机号码" />
+      </view>
+      <view class="section">
+        <view class="section-title">省市区</view>
+        <picker
+          name="address"
+          mode="region"
+          bindchange="bindRegionChange"
+          value="{{region}}"
+          custom-item=""
+        >
+          <view class="picker">
+            {{region[0]}}{{region[1]}}{{region[2]}}
+          </view>
+        </picker>
+      </view>
+      <view class="section">
+        <view class="section-title">详细地址</view>
+        <textarea name="detailsSite" auto-height placeholder="街道、楼牌号等" />
+      </view>
+      <view class="switch-section">
+        <view class="section-title">设置默认地址</view>
+        <switch name="type" bindchange="switchChange" />
+      </view>
+      <view class='bottom'>
+        <button form-type="reset">重置</button>
+        <button class='save' form-type='submit'>保存并使用</button>
+      </view>
+    </form>
+  </view>
+</view>

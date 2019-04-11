@@ -1,0 +1,73 @@
+<!--pages/microRace/index.wxml-->
+<view class='container'>
+  <view class='header'>
+    <view class='search-box' animation="{{animationData}}">
+      <icon size="41rpx" type='search' bindtap='goExpand'></icon>
+      <input placeholder="搜索比赛/地区" confirm-type="search"></input>
+    </view>
+    <view class='sort'>
+      <text>排序</text>
+      <icon class='triangle'></icon>
+    </view>
+    <view class='image'>
+      <image src='../image/increase.png' bindtap='goRelease'></image>
+    </view>
+  </view>
+  <view class='main-list'>
+    <view class='main-box' bindtap='goMyMicroRace' wx:for="{{microRaceList}}" wx:for-item="list">
+      <view class='user'>
+        <image src='{{list.img_orogin}}' mode='aspectFill' ></image>
+        <text>{{list.title}}</text>
+      </view>
+      <view class='content'>
+          <text>{{list.summary}}</text>
+      </view> 
+      <view class='photos'>
+        <image wx:for="{{list.gallery}}" src="{{item}}" mode='scaleToFill'></image>
+      </view>
+      <view class='attention'>
+        <image src='../image/before-attention.png'></image>
+        <image src='../image/after-attention.png'></image>
+        <text>关注</text>
+      </view>
+    </view>
+  </view>
+  <view class='main-box'>
+      <view class='user'>
+        <image src='../image/gold.png' mode='aspectFill'></image>
+        <text>1111</text>
+      </view>
+      <view class='content'>
+          <text>12121112787878978978978978978975454543787845641531357435.13454542423456465434137461634163.4512313422222</text>
+      </view> 
+      <view class='photos'>
+        <image src="../image/index.png" mode='scaleToFill'></image>
+        <image src="../image/index.png" mode='scaleToFill'></image>
+        <image src="../image/index.png" mode='scaleToFill'></image>
+      </view>
+      <view class='attention'>
+        <image src='../image/before-attention.png'></image>
+        <image src='../image/after-attention.png'></image>
+        <text>关注</text>
+      </view>
+    </view>
+    <view class='main-box'>
+      <view class='user'>
+        <image src='../image/gold.png' mode='aspectFill'></image>
+        <text>1111</text>
+      </view>
+      <view class='content'>
+          <text>12121112787878978978978978978975454543787845641531357435.13454542423456465434137461634163.4512313422222</text>
+      </view> 
+      <view class='photos'>
+        <image src="../image/index.png" mode='scaleToFill'></image>
+        <image src="../image/index.png" mode='scaleToFill'></image>
+        <image src="../image/index.png" mode='scaleToFill'></image>
+      </view>
+      <view class='attention'>
+        <image src='../image/before-attention.png'></image>
+        <image src='../image/after-attention.png'></image>
+        <text>关注</text>
+      </view>
+    </view>
+</view>
