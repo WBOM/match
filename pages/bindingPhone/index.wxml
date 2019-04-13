@@ -7,17 +7,18 @@
     </view>
     <view class="section">
       <image src='../image/icon_phone.png'></image>
-      <input name="phone" placeholder="请输入手机号" />
+      <input name="phone" bindblur='getPhone' placeholder="请输入手机号" />
     </view>
     <view class="section">
       <image src='../image/icon_safety.png'></image>
       <input name="yzm" placeholder="请输入验证码" />
-      <button bindtap='goSend'>获取验证码</button>
+      <button wx-if="{{!show}}" bindtap='goSend'>发送验证码</button>
+      <button wx-if="{{show}}" disabled>重新发送{{countDownNum}}</button>
     </view>
     <view class='pact'>
       <checkbox-group name="checkbox">
         <label>
-          <checkbox value="checkbox1" />
+          <checkbox value="true" />
            勾选同意<text>《用户协议》</text>
         </label>
       </checkbox-group>

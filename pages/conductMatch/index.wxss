@@ -12,15 +12,29 @@
   flex-flow: column nowrap;
   box-sizing: border-box;
   padding:1rem 1.5rem;
-  height: 8.56rem;
+  height:10rem;
   background: #ffffff;
 }
-.header text{
+.header view{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 0.88rem;
   color: #101010;
-  height: 1rem;
-  line-height: 1rem;
-  margin-bottom: 1rem;
+}
+.header view text{
+  flex: 1;
+}
+.header view button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  height: 1.6rem;
+  width: 8rem;
+  color: #101010;
+  margin-bottom: 0.5rem;
 }
 .time{
   width: 100%;

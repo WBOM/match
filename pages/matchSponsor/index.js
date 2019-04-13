@@ -8,6 +8,7 @@ Page({
     matchId:'',
     currentTab: 1,
     sponsorList:{},
+    matchTitle:'',//赛事标题
   },
   // 点击切换
   clickTab: function (e) {
@@ -59,7 +60,8 @@ Page({
   onLoad: function (options) {
     this.setData({
       currentTab:options.currentTab,
-      matchId:options.matchId
+      matchId:options.matchId,
+      matchTitle:options.matchTitle
     })
     this.getSponsorList();
   },

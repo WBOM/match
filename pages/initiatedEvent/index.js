@@ -1,4 +1,5 @@
 // pages/initiatedEvent/index.js
+
 // 引入SDK核心类
 var QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
 // 实例化API核心类
@@ -18,11 +19,11 @@ Page({
     matchClassList:[],//比赛类型
     matchClassIndex:0,
     matchClassId: '',//比赛类型ID
-    teamModeList: ['自由组队', '随机分组'],
+    teamModeList: ['自由组队', '混抽','混抽或自由组队'],
     startDate: '2019-01-01',
     endDate:'2019-01-01',
     address:'',
-    projectNumber: [{}],
+    projectNumber: [{}],//项目数量
     projectLists:[],
     tempFilePaths: '',
     albumPhotos: [],
@@ -215,6 +216,10 @@ Page({
   },
   formSubmit: function (e) {
     var that=this;
+    for(var i=0;i<that.data.projectNumber.length;i++){
+      console.log((e.detail.value.projectName0)
+      )
+    };
     console.log('form发生了submit事件，携带数据为：', e.detail.value);
     var warn = "";//弹框时提示的内容
     var flag = true;//判断信息输入是否完整
@@ -237,13 +242,15 @@ Page({
           endtime: e.detail.value.endDate,
           address: e.detail.location,
           cate_id: e.detail.matchClass,
-          team_xzrs: e.detail.numberPeople0,//某个项目的总人数
-          team_type:e.detail.
+          team_zrs: e.detail.numberPeople0,//某个项目的总人数
+          team_type: e.detail.teamMode0,//团体组队方式
+          team_xzrs:e.detail.groupSizem,//小组人数
+          team_cxrs: e.detail.eliminateNumber,
+          team_price:e.detail.team_price,
+          context: e.detail.rule,//主办人
+          img_thumb: that.data.albumPhotos,//相册
+          vidio: that.data.video,
         },
-        header: {},
-        method: 'GET',
-        dataType: 'json',
-        responseType: 'text',
         success: function(res) {},
         fail: function(res) {},
         complete: function(res) {},

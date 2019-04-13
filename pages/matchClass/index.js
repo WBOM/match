@@ -12,6 +12,15 @@ Page({
     cateId:'',
     tab:'-1'
   },
+  //跳转到赛事详情
+  goMatchDetails: function (e) {
+    wx.navigateTo({
+      url: "../matchDetails/index?matchId=" + e.currentTarget.dataset.matchid,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

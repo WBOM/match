@@ -7,7 +7,7 @@
     </view>
     <view class="section">
       <view class="section__title">手机号</view>
-      <input name="phone" placeholder="请输入姓名" />
+      <input name="phone" bindblur='getPhone' placeholder="请输入手机号" />
     </view>
     <view class="section">
       <view class="section__title">验证码</view>

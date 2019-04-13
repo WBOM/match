@@ -43,6 +43,20 @@ Page({
       complete: function(res) {},
     })
   },
+  //选择地址返回订单
+  returnOrder:function(e){
+    console.log(e);
+    var pages = getCurrentPages();
+    var currPage = pages[pages.length - 1];   //当前页面
+    var prevPage = pages[pages.length - 2];  //上一个页面
+    //直接调用上一个页面对象的setData()方法，把数据存到上一个页面中去
+    prevPage.setData({
+      addressId:e.currentTarget.dataset.id
+    });
+    wx.navigateBack({
+      delta: 1
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

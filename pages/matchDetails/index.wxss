@@ -1,8 +1,14 @@
 /* pages/matchDetails/index.wxss */
+page{
+  background: #FFFFFF;
+}
 .container{
   margin: 0;
   padding: 0;
-  background: #F4F8FB;
+
+}
+.off{
+  overflow: hidden;
 }
 .title{
   display: block;
@@ -72,6 +78,7 @@
   margin: 0;
   display: flex;
   flex-flow: row nowrap;
+  margin-bottom: 1rem;
 }
 .introduction button{
   width: 45%;
@@ -141,4 +148,102 @@
   border-radius: 0.28rem;
   font-size: 0.78rem;
 }
+/************************************/
+/*遮盖*/
+.cover{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 4;
+}
+.select{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 14.83rem;
+  background: #ffffff;
+  border-radius: 0.56rem 0.56rem 0 0;
+  z-index: 5;
+}
+.select icon{
+  display: flex;
+  position: relative;
+  right: 1rem;
+  top: 0.5rem;
+  float: right;
+}
+.selectList{
+  display: flex;
+  width: 100%;
+  padding: 0 0.5rem;
+  flex-flow: column nowrap;
+  margin-top: 2rem;
+  overflow:hidden;
+  height:9rem;
+  font-size: 0.78rem;
+  color: #E51C23;
+}
+.selectList radio-group label{
+  display: flex;
+  margin: 0.7rem 1rem 0.7rem 0.5rem;
+}
+.selectText{
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.selectPrice{
+  display: flex;
+  align-items: center;
+  width: 3rem;
+}
+.totalPrice{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+  height: 2.17rem;
+  line-height: 2.17rem;
+}
 
+.totalPrice button{
+  width: 4.83rem;
+  height: 1.89rem;
+  line-height: 1.89rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 1rem;
+  color: #FFFFFF;
+  background: #E51C23;
+  font-size: 0.78rem;
+  border-radius: 0.83rem;
+}
+/***********************自定义滚动条******************************/
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+width: 0.2rem;
+height: 1rem;
+background-color: #ffffff;
+/*color: transparent;*/
+}
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+-webkit-box-shadow: inset 0 0 0.2rem rgba(0,0,0,0.1);
+border-radius: 0.2rem;
+background-color: #ffffff;
+}
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 0.2rem rgba(0,0,0,.1);
+background-color: rgba(0,0,0,.1);
+}

@@ -69,7 +69,7 @@
   width: 100%;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background: #FFFFFF;
   padding: 0.5rem;

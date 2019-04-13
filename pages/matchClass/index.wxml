@@ -10,7 +10,7 @@
     </view>
     <!--内容-->
     <view class='match-list'>
-      <view class='match-list-box' wx:for="{{matchLists}}" wx:for-item="matchList">
+      <view class='match-list-box' wx:for="{{matchLists}}" wx:for-item="matchList" data-matchid='{{matchList.id}}' bindtap='goMatchDetails'>
         <image src='{{matchList.img_thumb}}' mode="scaleToFill" lazy-load="true"></image>
         <text>{{matchList.title}}</text>
       </view>

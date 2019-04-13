@@ -5,9 +5,13 @@
     <text>{{userInfo.username}}</text>
   </view>
   <view class='main'>
-    <view class='main-box' wx:for="{{matchList}}" wx:for-item="match" wx:key="{{index}}" wx:if="{{match.id != matchId}}" bindtap='goMatchCetails'>
+    <view class='main-box' wx:for="{{matchList}}" wx:for-item="match" wx:key="{{index}}" wx:if="{{match.id != matchId}}" bindtap='goMatchSponsor' data-matchId='{{match.id}}'>
       <image src='{{match.img_orogin}}' mode="scaleToFill"></image>
       <text>{{match.title}}</text>
+    </view>
+    <view class='main-box' bindtap='goMatchSponsor' data-matchId='{{12}}'>
+      <image src='../imageindex.png' mode="scaleToFill"></image>
+      <text>121212</text>
     </view>
   </view>
 </view>

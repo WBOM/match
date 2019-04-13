@@ -1,9 +1,21 @@
 <view class='container'>
   <view class='header'>
-    <text>总参与人数：{{basicList.team_zrs}}人</text>
-    <text>组别:A组 （共3组）</text>
-    <text>出线人数：{{basicList.cxrs}}人</text>
-    <text>场地：{{basicList.weizhi}}</text>
+    <view>
+      <text>总参与人数：{{basicList.team_zrs}}人</text>
+      <button>邀请加入比赛</button>
+    </view>
+    <view>
+      <text>组别:A组 （共3组）</text>
+      <button>邀请组队比赛</button>
+    </view>
+    <view>
+      <text>出线人数：{{basicList.cxrs}}人</text>
+      <button>退赛</button>
+    </view>
+    <view>
+      <text>场地：{{basicList.weizhi}}</text>
+      <button>签到</button>
+    </view>
   </view>
   <view class='time'>
     <text>下一场比赛时间：</text>

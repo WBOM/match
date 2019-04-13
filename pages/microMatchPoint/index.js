@@ -71,16 +71,14 @@ Page({
       },
     })
   },
-  //跳转到赛事详情
-  goMatchCetails:function(){
-    var that =this;
+  //跳转到其他赛事主页
+  goMatchSponsor:function(e){
+    console.log(e);
     wx.navigateTo({
-      url: '../matchDetails/index?matchId=' + that.data.matchId,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      url: '../matchSponsor/index?currentTab=1&matchId='+e.currentTarget.dataset.matchid,
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

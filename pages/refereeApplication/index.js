@@ -10,6 +10,14 @@ Page({
     timer: '',//定时器名字
     countDownNum: '60',//倒计时初始值
     show:false,
+    phone:'',
+  },
+  //获取手机号
+  getPhone:function(e){
+    console.log(e.detail.value);
+    this.setData({
+      phone: e.detail.value
+    })
   },
   //提交申请
   formSubmit(e) {

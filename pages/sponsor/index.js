@@ -6,50 +6,40 @@ Page({
   /**
    * 页面的初始数据
    */
+
   data: {
-    searchValue: '',
     centent_Show: true,
     sponsorList:{},
   },
+  //搜索
   goSearch:function(e){
-    var value = e.detail.value;
-    this.setData({
-      searchValue: value,
-    });
-    if (!value && this.data.productData.length == 0) {
-      this.setData({
-        centent_Show: false,
-      });
-    }
-  },
-  suo: function (e) {
-    var id = e.currentTarget.dataset.id
-    var program_id = app.program_id;
-    var that = this;
-    wx.request({
-      url: '',//这里填写后台给你的搜索接口
-      method: 'post',
-      data: { str: that.data.searchValue, program_id: program_id, style: id },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
+    console.log(e);
+    var that=this;
+    call.request({
+      url: 'http://test.tuolve.com/jingsai/web/api.php/Sponsor/spon_lists',
+      data: {
+        keyworld: e.detail.value
       },
-      success: function (res) {
-        if (res.data.length == 0) {
+      success: function(res) {
+        console.log(res)
+        if(res.data.status==10001){
           that.setData({
-            centent_Show: false,
-          });
+            sponsorList:res.data.lists,
+            centent_Show: false
+          })        
+        } else if (res.data.status == 10002){
+          that.setData({
+            centent_Show: false
+          })
+        } else{
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 1000,
+          })
         }
-        that.setData({
-          nanshen_card: res.data,
-        });
-      },
-      fail: function (e) {
-        wx.showToast({
-          title: '网络异常！',
-          duration: 2000
-        });
-      },
-    });
+      }
+    })
   },
   //跳转到商品界面
   goCommodity:function(){
@@ -63,7 +53,7 @@ Page({
   //跳转到赞助商商城
   goMall:function(){
     wx.navigateTo({
-      url: '../mall/index',
+      url: '../mall/index?',
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

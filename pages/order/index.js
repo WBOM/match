@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    addressId:'',
   },
   //跳转到地址页面
   goAddress:function(){
@@ -25,27 +25,50 @@ Page({
       complete: function(res) {},
     })
   },
+  //查询默认地址
+  getDefaultAddress:function(){
+    var that=this;
+    var type=that.type;
+    if (that.data.addressId==''){
+      type=1
+    }else{
+      type=''
+    }
+    wx.request({
+      url: 'http://test.tuolve.com/jingsai/web/api.php/UserAddress/lists',
+      data: {
+        type:type,//默认地址
+        user_id:'1',//用户自己的ID
+        id:that.data.addressId
+      },
+      success: function(res) {
+        console.log(res);
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getDefaultAddress();
   },
-
+  
   /**
    * 生命周期函数--监听页面隐藏
    */

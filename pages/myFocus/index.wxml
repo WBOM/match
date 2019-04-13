@@ -1,21 +1,21 @@
 <!--pages/myFocus/index.wxml-->
 <view class='container'>
   <view class='match-list'>
-    <view class='match-box'>
+    <view class='match-box' wx:for="{{attentionList}}" wx:for-item="attention" wx:key="{{index}}">
       <view class='time'>
-        <text>19年01月28日  23：00</text>
+        <text>{{attention.game_starttime}}</text>
         <text>开始</text>
       </view>
       <view class='content'>
         <view class='photo'>
-          <image src='../image/index.png'></image>
+          <image src='{{attention.img_orogin}}'></image>
         </view>
         <view class='text'>
           <view>
-            <text class='title'>2019 大理马拉松</text>
+            <text class='title'>{{attention.title}}</text>
           </view>
           <view class='address'>
-            <text>云南省 大理白族自治州 大1212121212121111</text>
+            <text>{{attention.address}}</text>
           </view>
           <view class='project'>
             <view>

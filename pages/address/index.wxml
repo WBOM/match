@@ -1,7 +1,7 @@
 <!--pages/address/index.wxml-->
 <view class='container'>
   <view class='address-list'>
-    <view class='address-box' wx:for="{{addressList}}" wx:for-item="address" wx:key="{{index}}">
+    <view class='address-box' bindtap='returnOrder' data-id='{{addressList.id}}' wx:for="{{addressList}}" wx:for-item="address" wx:key="{{index}}">
       <view class='recipient'>
         <text class='name'>{{address.name}}</text>
         <text class='phone'>{{address.phone}}</text>
@@ -12,7 +12,7 @@
         <text class='edit'>编辑</text>
       </view>
     </view>
-    <view class='address-box'>
+    <view class='address-box' bindtap='returnOrder' data-id='{{12121}}' >
       <view class='recipient'>
         <text class='name'>曾小姐</text>
         <text class='phone'> 177****7044</text>

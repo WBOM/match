@@ -79,7 +79,6 @@
       </view>
       <view>
         <view class="project-list" wx:for="{{projectNumber}}" wx:key="{{index}}">
-          
           <view class='project-name'>
             <view class="project-title">比赛项目{{index+1}}</view>
             <input name="projectName{{index}}" placeholder="请添加项目" />
@@ -99,9 +98,9 @@
             <icon class='triangle'></icon>
           </view>
           <view class='project-box'>
-            <view class="title">小组数</view>
-            <input name="numberGroups{{index}}" placeholder="" />
-            <text>组</text>
+            <view class="title">小组人数</view>
+            <input name="groupSize{{index}}" placeholder="" />
+            <text>人</text>
           </view>
           <view class='project-box'>
             <view class="title">出线人数</view>
@@ -123,12 +122,20 @@
           </view>
         </view>
       </view>
+      <view class='rule'>
+        <view class="section">
+          <view class="section-title">微赛点（主办方）</view>
+          <textarea maxlength='-1' name="rule" bindblur="bindTextAreaBlur" placeholder="请填写赛事内容，费用，规则" />
+        </view>
+      </view>
+      <!--
       <view class='host'>
         <view class="section">
           <view class="section-title">微赛点（主办方）</view>
-          <textarea class='host-name' name="hostName" bindblur="bindTextAreaBlur" auto-height placeholder="主办方名称****俱乐部或公司" />
+          <textarea class='host-name' name="hostName" bindblur="bindTextAreaBlur" auto-height placeholder="请填写赛事内容，费用，规则" />
         </view>
       </view>
+      -->
       <view class='album'>
         <text>上传照片</text>
         <view class='album-box'>
@@ -143,12 +150,7 @@
           <button bindtap='addVideo'>上传视频</button>
         </view> 
       </view>
-      <view class='rule'>
-        <view class="section">
-          <view class="section-title">比赛规则</view>
-          <textarea name="rule" bindblur="bindTextAreaBlur" placeholder="赛制的描述" />
-        </view>
-      </view>
+      
       <view class='cost'>
         <view>
           <text>支付费用:</text>

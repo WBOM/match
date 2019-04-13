@@ -1,30 +1,33 @@
 <!--pages/matchSponsor/index.wxml-->
 <view class='cotainer'>
-  <view class='title'>胜利特杯乒乓球3人团体赛比赛</view>
+  <view class='title'>{{matchTitle}}</view>
   <view class='option'>
     <view>
       <text bindtap='goMatchDetails'>赛制</text>
     </view>
     <view>
-       <text class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">个人赞助</text>
+       <text class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">赞助</text>
     </view>
-    <view>
+    <!--
+      <view>
        <text class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">企业赞助</text>
     </view>
     <view>
        <text class="swiper-tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="clickTab">其他赛事</text>
     </view>
+    -->
+    
   </view>
   <!--介绍-->
   <view class='introduction'>
     <view class = "{{currentTab == 1 ? 'show':'hidden'}}" >
       <scroll-view>
-        <view class='sponsor-box'>
-          <image src='../image/index.png' mode="scaleToFill" lazy-load="true"></image>
+        <view class='sponsor-box' wx:for="{{sponsorList}}" wx:for-item="sponsor">
+          <image src='{{sponsor.img_thumb}}' mode="scaleToFill" lazy-load="true"></image>
           <view>
-            <text class='name'>李宁旗舰店赞助</text>
-            <text class='product-name'>3件装 | MEDIHEAL 超薄透气运动服装</text>
-            <text class='price'>￥价格</text>
+            <text class='name'>{{sponsor.username}}</text>
+            <text class='product-name'>{{sponsor.summary}}</text>
+            <!--<text class='price'>￥价格</text>-->
           </view>
         </view>
         <view class='sponsor-box'>
@@ -37,6 +40,7 @@
         </view>
       </scroll-view>
     </view>
+    <!--
     <view class = "{{currentTab == 2 ? 'show':'hidden'}}">
       <scroll-view>
         <view class='sponsor-box' wx:for="{{sponsorList}}" wx:for-item="sponsor" wx:key="{{index}}">
@@ -76,5 +80,6 @@
       </scroll-view>
       <button class='initiate'>发赞助</button>
     </view>
+    -->
   </view>
 </view>

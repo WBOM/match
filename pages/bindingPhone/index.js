@@ -9,6 +9,13 @@ Page({
     timer: '',//定时器名字
     countDownNum: '60',//倒计时初始值
     show: false,
+    phone:'',
+  },
+  //获取填写的手机号
+  getPhone:function(e){
+    this.setData({
+      phone:e.detail.value
+    })
   },
   //发送验证码
   goSend: function (e) {
@@ -21,7 +28,7 @@ Page({
       url: 'http://test.tuolve.com/jingsai/web/api.php/Code/get_code',
       method: 'POST',
       data: {
-        phone: e.value.phone
+        phone: that.data.phone
       },
       success: function (res) {
         console.log(res);
@@ -53,7 +60,7 @@ Page({
   formSubmit(e) {
     var warn = "";//弹框时提示的内容
     var flag = true;//判断信息输入是否完整
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    console.log('form发生了submit事件，携带数据为：', e.detail.value.checkbox[0])
     var that = this;
     if (e.detail.value.name == "") {
       warn = "请填写您的姓名！";
@@ -61,9 +68,11 @@ Page({
       warn = "请填写您的手机号！";
     } else if (!(/^1(3|4|5|7|8)\d{9}$/.test(e.detail.value.phone))) {
       warn = "手机号码格式不正确！";
-    } else if (e.detail.value.code == "") {
-      warn = "请输入验证码";
-    } else {
+    } else if (e.detail.value.yzm == "") {
+      warn = "请输入验证码！";
+    } else if (e.detail.value.checkbox[0] == undefined){
+      warn = "请同意用户协议！";
+    }else {
       flag = false;//若必要信息都填写，则不用弹框，且页面可以进行跳转
       wx.navigateTo({
         url: 'http://test.tuolve.com/jingsai/web/api.php/BookInfo/be_referee',

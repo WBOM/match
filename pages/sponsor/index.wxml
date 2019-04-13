@@ -3,19 +3,18 @@
   <view class='search'>
     <view class='search-box'>
       <icon size="41rpx" type='search'></icon>
-      <input placeholder="搜索产品/商家" bindblur="goSearch" bindconfirm="goSearch" confirm-type="search" value="{{searchValue}}"></input>
-      
+      <input placeholder="搜索产品/商家" bindblur="goSearch" bindconfirm="goSearch" confirm-type="search"></input>
+
     </view>
     <view class='commodity'>
-        <button  bindtap='goCommodity'>商品</button>
-      </view>
-    
+      <button  bindtap='goCommodity'>商品</button>
+    </view>
   </view>
   <view class="search-no" wx:if="{{!centent_Show}}">
     <text>很抱歉,没有找到您要搜索的资料/(ㄒoㄒ)/~~</text>
   </view> 
   <view class='sponsor-list' wx:if="{{centent_Show}}">
-    <view class='sponsor-box' bindtap='goMall' wx:for="{{sponsorList}}" wx:for-item="sponsor" wx:key="{{index}}">
+    <view class='sponsor-box' bindtap='goMall' wx:for="{{sponsorList}}" wx:for-item="sponsor" wx:key="{{index}}" data-sponsorid='{{sponsor}}'>
       <view>
         <image src='{{sponsor.img_thumb}}'></image>
       </view>

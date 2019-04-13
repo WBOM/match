@@ -1,5 +1,5 @@
 <!--pages/matchDetails/index.wxml-->
-<view class='container'>
+<view class='container' class="{{locking?'off':''}}">
   <!--标题-->
   <view class='title'>{{matchInformation.title}}</view>
   <!--选项-->
@@ -8,7 +8,7 @@
       <text>报名</text>
     </view>
     <view>
-       <text bindtap='goConductMatch'>进行比赛</text>
+       <text data-tag='1' bindtap='goProjectList'>进行比赛</text>
        <text wx-if="{{result}}" bindtap='goMatchSponsor'>比赛结果</text>
     </view>
     <view>
@@ -29,12 +29,11 @@
     </view>
     <view class='button'>
       <button>已报名{{matchInformation.yibaoming}}/{{matchInformation.amount}}</button>
-      <button bindtap='signUp'>报名</button>
+      <button data-tag='2' bindtap='goProjectList'>报名</button>
     </view>
   </view>
   <!--报名情况-->
   <view class='personnel-box'>
-    <text>已报名人数{{matchInformation.yibaoming}}/{{matchInformation.amount}}</text>
     <view class='personnel-list'>
       <view class='personnel' wx:for="{{peopleLists}}" wx:key="{{index}}" wx:for-item="people">
         <image src='../image/index.png' mode="scaleToFill" lazy-load="true"></image>
@@ -44,4 +43,27 @@
   </view>
   <!--底部申请裁判按钮-->
   <button class='application' bindtap='goRefereeApplication'>申请裁判</button>
+  <!--项目选项卡-->
+  <view class='cover' wx:if="{{selectEvent}}"  bindtap='hideModal' catchtouchmove="move"></view>
+  <view class='select' wx:if="{{selectEvent}}" animation='{{animationData}}'>
+  <icon type="clear" size="45rpx" bindtap='hideModal' />
+  <scroll-view class="selectList" scroll-y="true">
+  <!--<checkbox-group>
+      <label wx:for="{{selectLists}}" wx:for-item="select" data-index="{{index}}" bindtap="goSelectList">
+        <checkbox value="{{select.name}}" checked="{{select.selected}}"></checkbox>
+        <text class='selectText'>{{select.team_name}}</text>
+        <text class='selectPrice'>￥{{select.team_price}}</text>
+      </label>
+    </checkbox-group>-->
+    <radio-group class="radio-group">
+      <label wx:for="{{projectList}}" wx:for-item="project"  data-projectid="{{project.id}}"  bindtap='selectProject' wx:key="{{index}}">
+        <radio color='#E51C23' checked="{{index==0?'true':''}}" ></radio>
+        <text class='selectText'>{{project.team_name}}</text>
+      </label>
+    </radio-group>
+  </scroll-view>
+  <view class='totalPrice'>
+    <button bindtap='goConfirm'>确定</button>
+  </view>
+  </view>
 </view>

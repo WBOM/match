@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    projectId:[],//选着项目id
+    projectId:'',//选着项目id
     price:'',//价格
     matchId:'',//赛事ID
     competitionList: ['4*100接力赛', '1000米竞赛', '10公里马拉松', '铁人三项'],

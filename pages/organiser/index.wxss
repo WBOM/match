@@ -200,6 +200,69 @@
   padding: 0.5rem;
 }
 /*******************报名列表*******************/
+/*遮罩*/
+.cover{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 4;
+}
+/*弹框*/
+.modal{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -7.5rem;
+  margin-top: -3rem;
+  width: 15rem;
+  height: 6rem;
+  z-index: 10;
+  background:#ffffff;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem rgb(165, 165, 165);
+}
+.modal view{
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+}
+.modal .text{
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.modal .text text{ 
+  font-size: 0.7rem;
+}
+.modal .text input{
+  flex: 2;
+  border-bottom: 0.06rem #BBBBBB solid;
+}
+.modal .button{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.modal .button button{
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+.modal .confirm{
+  background: #E51C23;
+  color: #ffffff;
+}
+/***************/
+
 .signUpList{
   width: 100%;
   height: auto;
@@ -259,7 +322,7 @@
 }
 .bottom button{
   display: flex;
-  font-size: 0.88rem;
+  font-size: 0.7rem;
   justify-content: center;
   align-items: center;
   margin: -0.8rem 0 0;
@@ -308,11 +371,14 @@ button.end{
   display: flex;
   flex-flow: row nowrap;
 }
+.knockout-box radio-group{
+  margin-bottom: 1rem;
+}
 .knockout-box button{
   width: 50%;
   margin: 0;
-  height: 3rem;
-  line-height: 3rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
 }
 .knockout-box button:first-child{
   background: #686868;
@@ -338,7 +404,7 @@ button.end{
   background: #ffffff;
 }
 .referee-box .left{
-  width: 100%;
+  flex: 1;
   display: flex;
   flex-flow: column nowrap;
   align-content: space-between;
@@ -347,7 +413,6 @@ button.end{
   margin: 1rem 0;
 }
 .referee-box .right{
-  width: 100%;
   display: flexl;
   flex-flow: row nowrap;
   justify-content: space-between;

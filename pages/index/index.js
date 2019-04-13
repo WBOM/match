@@ -20,6 +20,15 @@ Page({
       url: '../matchClass/index'
     })
   },
+  //跳转到赛事详情
+  goMatchDetails: function (e) {
+    wx.navigateTo({
+      url: "../matchDetails/index?matchId=" + e.currentTarget.dataset.matchid,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
   //事件处理函数
   bindViewTap: function() {
 

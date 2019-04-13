@@ -1,4 +1,3 @@
-
 <!--pages/organiser/index.wxml-->
 <view class='container'>
   <!--选项-->
@@ -35,9 +34,9 @@
               </view>
               <icon class='triangle'></icon>
             </picker>
-            <picker name="site" bindchange="bindRefereeListChange" value="{{refereeIndex}}" range="{{refereeList}}">
+            <picker name="referee" bindchange="bindRefereeListChange" value="{{refereeList[refereeIndex].id}}" range="{{refereeList}}" range-key="{{'username'}}">
               <view class="picker">
-                  {{refereeList[refereeIndex]}}
+                  {{refereeList[refereeIndex].username}}
               </view>
               <icon class='triangle'></icon>
             </picker>
@@ -99,75 +98,70 @@
     </view>
     <!--报名列表-->
     <view class = "{{currentTab == 1 ? 'show':'hidden'}}" >
-      <scroll-view>
+      <view class='cover' wx:if="{{phoneShow}}" bindtap='cancel'></view>
+      <view class='modal' wx:if="{{phoneShow}}">
+      <form bindsubmit="confirmSubmit">
+        <view class='text'>
+          <text>请输入手机号：</text>
+          <input name='phone' type='number'/>
+        </view>
+        <view class='button'>
+          <button bindtap='cancel'>取消</button>
+          <button form-type='submit' class='confirm'>确认</button>
+        </view>
+      </form>
+      </view>
+      <scroll-view >
         <view class='signUpList'>
-          <view class='player-box'>
+          <view class='player-box' wx:for="{{registeredList}}" wx:for-item="registered" wx:key="{{index}}">
             <view class='header'>
               <text class='head-1'>第一名</text>
               <text class='head-2'>90分</text>
-              <text class='head-3'>+邀请加入 |</text>
-              <text class='head-4'>删除</text>
+              <text class='head-3' bindtap="goInvite">+邀请加入 |</text>
+              <text class='head-4' data-peopleid='{{registered.id}}' bindtap='goDelete'>删除</text>
             </view>
             <view class='name'>
-              <text>张三</text>
+              <text>{{registered.username}}</text>
             </view>
             <view class='bottom'>
-              <text>13828776965</text>
-              <button>设为种子选手</button>
+              <text>{{registered.phone}}</text>
+              <button data-userid='{{registered.id}}' bindtap='setseedPlayer'>设为种子选手</button>
             </view>
           </view>
-          <view class='player-box'>
-            <view class='header'>
-              <text class='head-1'>第一名</text>
-              <text class='head-2'>90分</text>
-              <text class='head-3'>+邀请加入 |</text>
-              <text class='head-4'>删除</text>
-            </view>
-            <view class='name'>
-              <text>张三</text>
-            </view>
-            <view class='bottom'>
-              <text>13828776965</text>
-              <button>设为种子选手</button>
-            </view>
-          </view>
-          <view class='player-box'>1212</view>
-          <view class='player-box'>1212</view>
         </view>
         <button class='end'>报名结束</button>
-        <view class='knockout-box'>
-          <text class='title'>淘汰赛</text>
-          <text class='checkIn'>签到人数</text>
-          <text class='checkIn-number'>12人</text>
-          <view>
-            <button>按签到分组</button>
-            <button>不按签到分组</button>
+        <form bindsubmit='goGrouping'>
+          <view class='knockout-box'>
+            <text class='title'>淘汰赛</text>
+            <text class='checkIn'>签到人数</text>
+            <text class='checkIn-number'>{{signInNumber}}人</text>
+            <radio-group name="goGroupingIndex" class="radio-group">
+              <label class="radio" wx:for="{{groupingType}}" wx:for-item='grouping' wx:key='{{index}}'>
+                <radio color='#E51C23' value="{{grouping.index}}" checked="{{grouping.checked}}" />
+                {{grouping.value}}
+              </label>
+            </radio-group>
+            <view>
+              <button form-type='submit' data-type='1'>按签到分组</button>
+              <button form-type='submit' data-type='2'>不按签到分组</button>
+            </view>
           </view>
-        </view>
+        </form>
       </scroll-view>
     </view>
     <!--裁判列表-->
     <view class = "{{currentTab == 2 ? 'show':'hidden'}}">
       <scroll-view>
         <view class='referee-list'>
-          <view class='referee-box'>
+          <view class='referee-box' wx:for="{{allRefereeList}}" wx:for-item="referee" wx:key="{{index}}">
             <view class='left'>
-              <text>张三 </text>
-              <text>13828776965</text>
+              <text>{{referee.username}}</text>
+              <text>{{referee.phone}}</text>
             </view>
             <view class='right'>
-              <button>通过</button>
-              <button class='refuse'>拒绝</button>
-            </view>
-          </view>
-          <view class='referee-box'>
-            <view class='left'>
-              <text>张三 </text>
-              <text>13828776965</text>
-            </view>
-            <view class='right'>
-              <button>通过</button>
-              <button class='refuse'>拒绝</button>
+              <button wx:if='{{referee.status==0}}' data-refereeid='{{referee.id}}' bindtap='goPass'>通过</button>
+              <button wx:if='{{referee.status==0}}' data-refereeid='{{referee.id}}' bindtap='goRefuse' class='refuse'>拒绝</button>
+              <button wx:if='{{referee.status==1}}' disabled>已通过</button>
             </view>
           </view>
         </view>
@@ -236,7 +230,7 @@
         <view class='album'>
           <text>相册</text>
           <view class='album-box'>
-            <image src='{{albumPhotos[index]}}' wx:for="{{albumPhotos}}" bindtap='addAlbum' mode="aspectFill">
+            <image src='{{albumPhotos[index]}}' wx:for="{{albumPhotos}}" bindtap='addAlbum' mode="aspectFill" wx:key="{{index}}">
             </image>
           </view>
         </view>

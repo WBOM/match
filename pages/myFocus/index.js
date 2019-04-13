@@ -1,18 +1,43 @@
 // pages/myFocus/index.js
+import call from '../../utils/request.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    attentionList:[],
+  },
+  //获取关注列表
+  getAttentionList:function(){
+    var that=this;
+    wx.request({
+      url: 'http://test.tuolve.com/jingsai/web/api.php/User/collection_lists',
+      data: {
+        user_id:1,//需要获取用户自己的id
+      },
+      success: function(res) {
+        console.log(res);
+        if(res.data.status=10001){
+          that.setData({
+            attentionList: res.data.lists
+          })
+        }else{
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 1000,
+          })
+        }
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getAttentionList();
   },
 
   /**

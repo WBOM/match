@@ -35,7 +35,7 @@
   <view class='recommend'>
     <text class='recommend-title'>推荐</text>
     <view class='recommend-list'>
-      <view class='recommend-list-box' wx:for="{{recommendList}}" wx:for-item="recommend"  wx:key='index'>
+      <view class='recommend-list-box' wx:for="{{recommendList}}" wx:for-item="recommend" wx:key='{{index}}' data-matchid='{{recommend.id}}' bindtap='goMatchDetails'>
         <image src='{{recommend.img_thumb}}' mode="scaleToFill" lazy-load="true"></image>
         <text>{{recommend.title}}</text>
       </view>
