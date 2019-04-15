@@ -20,8 +20,9 @@ Page({
   },
   //赛事详情
   goMatchDetails:function(e){
+    console.log(e);
     wx.navigateTo({
-      url: "../matchDetails/index?matchId=" + e.target.dataset.matchid,
+      url: "../matchDetails/index?matchId=" + e.currentTarget.dataset.matchid,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

@@ -244,9 +244,9 @@ Page({
           cate_id: e.detail.matchClass,
           team_zrs: e.detail.numberPeople0,//某个项目的总人数
           team_type: e.detail.teamMode0,//团体组队方式
-          team_xzrs:e.detail.groupSizem,//小组人数
-          team_cxrs: e.detail.eliminateNumber,
-          team_price:e.detail.team_price,
+          team_xzrs:e.detail.groupSize0,//小组人数
+          team_cxrs: e.detail.eliminateNumber0,
+          team_price:e.detail.cost0,//单个项目的费用
           context: e.detail.rule,//主办人
           img_thumb: that.data.albumPhotos,//相册
           vidio: that.data.video,

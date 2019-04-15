@@ -166,8 +166,9 @@ Page({
       },
       success: function (res) {
         that.setData({
-            peopleLists: res.data.lists
-          })
+          peopleLists: res.data.lists
+        })
+        console.log(that.data.peopleLists);
       },
     })
   },

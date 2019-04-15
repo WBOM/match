@@ -5,8 +5,8 @@
       <image src='../image/index.png'></image>
     </view>
     <view class='content'>
-      <text class='name'>胜科特体育</text>
-      <text class='text'>胜科特体育对本次团体赛前三名赞助了比赛奖品（球拍、胶皮），并对比赛赞助如下产品优惠销售品牌营销、研发、设计、制造、经销及零售能力，产品主要包括自有李宁品牌生产的运动及休闲鞋类、服装、器材和配件产品。主要采用外包生产和特许分销商模式</text>
+      <text class='name'>{{sponsorInfo.username}}</text>
+      <text class='text'>{{sponsorInfo.summary}}</text>
     </view>
   </view>
   <view class='order-text'>
@@ -15,31 +15,32 @@
   <view class='commodity-list'>
     <form bindsubmit="formSubmit" bindreset="formReset">
       <checkbox-group  bindchange="checkboxChange">
-        <view class="commodity-box">
+        <view class="commodity-box" wx:for="{{commodityList}}" wx:for-item="commodity" wx:key="{{index}}">
           <label >
             <view class='selection'>
               <checkbox value="{{1}}" checked="{{ture}}" />
             </view>
           </label>
           <view class='image'>
-            <image src='../image/index.png'></image>
+            <image src='{{commodity.img_thumb}}'></image>
           </view>
           <view class='content'>
             <view class='title'>
-              <text>3件装 | MEDIHEAL 美迪惠尔 N.M.F针剂水库保湿面膜 10片/盒</text>
+              <text>{{commodity.goods_name}}</text>
             </view>
             <view class='price-box'>
               <view class='price'>
-                <text>￥169.00</text>
+                <text>￥{{commodity.shop_price}}</text>
               </view>
-              <view class="stepper">
-                <!-- 减号 -->
-                <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
-                <!-- 数值 -->
-                <input type="number" bindchange="bindManual" value="{{num}}" />
-                <!-- 加号 -->
-                <text class="normal" bindtap="bindPlus">+</text>
-              </view>
+              <!-- 主容器 -->  
+              <view class="stepper">  
+                  <!-- 减号 -->  
+                  <text class="{{count <= 1 ? 'disabled' : 'normal'}}" bindtap="delCount" data-index="{{index}}">-</text>  
+                  <!-- 数值 -->  
+                  <input type="number" bindchange="bindManual" value="{{count}}"  disabled="disabled"/>  
+                  <!-- 加号 -->  
+                  <text class="{{count >= 10 ? 'disabled' : 'normal'}}" bindtap="addCount" data-index="{{index}}">+</text>  
+              </view>  
             </view>
           </view>
         </view>
@@ -60,14 +61,15 @@
               <view class='price'>
                 <text>￥169.00</text>
               </view>
-              <view class="stepper">
-                <!-- 减号 -->
-                <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
-                <!-- 数值 -->
-                <input type="number" bindchange="bindManual" value="{{num}}" />
-                <!-- 加号 -->
-                <text class="normal" bindtap="bindPlus">+</text>
-              </view>
+              <!-- 主容器 -->  
+              <view class="stepper">  
+                  <!-- 减号 -->  
+                  <text class="{{count <= 1 ? 'disabled' : 'normal'}}" bindtap="delCount" data-index="{{index}}">-</text>  
+                  <!-- 数值 -->  
+                  <input type="number" bindchange="bindManual" value="{{count}}"  disabled="disabled"/>  
+                  <!-- 加号 -->  
+                  <text class="{{count >= 10 ? 'disabled' : 'normal'}}" bindtap="addCount" data-index="{{inedx}}">+</text>  
+              </view>  
             </view>
           </view>
         </view>
@@ -80,28 +82,12 @@
       <text>看他赞助的其他比赛</text>
     </view>
     <view class='other-list'>
-      <view class='other-box'>
+      <view class='other-box' wx:for="{{otherMatchList}}" wx:for="match" wx:key="{{index}}">
         <view class='image'>
-          <image src='../image/index.png'></image>
+          <image src='{{match.img_orogin}}'></image>
         </view>
         <view class='title'>
-          <text>2019中国牡丹之都菏泽职业篮球联赛11111111111111111111</text>
-        </view>
-      </view>
-      <view class='other-box'>
-        <view class='image'>
-          <image src='../image/index.png'></image>
-        </view>
-        <view class='title'>
-          <text>2019中国牡丹之都菏泽职业篮球联赛</text>
-        </view>
-      </view>
-      <view class='other-box'>
-        <view class='image'>
-          <image src='../image/index.png'></image>
-        </view>
-        <view class='title'>
-          <text>2019中国牡丹之都菏泽职业篮球联赛</text>
+          <text>{{match.title}}</text>
         </view>
       </view>
     </view>

@@ -27,7 +27,7 @@
           <view class="section-title">手机号码</view>
           <input name="phone" type='number' placeholder="请输入手机号码"/>
         </view>
-        <view class="section">
+        <!--<view class="section">
           <view class="section-title">比赛项目</view>
           <picker bindchange="bindCompetitionChange" value="{{index}}" range="{{competitionList}}" name="competition">
             <view class="picker">
@@ -35,7 +35,7 @@
             </view>
             <icon class="triangle"></icon>
           </picker>
-        </view>
+        </view>-->
         <view class="section">
           <view class="section-title">选手等级</view>
           <picker bindchange="bindLvChange" value="{{lv}}" range="{{lvList}}" name="lv">

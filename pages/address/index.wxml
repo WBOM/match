@@ -1,7 +1,7 @@
 <!--pages/address/index.wxml-->
 <view class='container'>
   <view class='address-list'>
-    <view class='address-box' bindtap='returnOrder' data-id='{{addressList.id}}' wx:for="{{addressList}}" wx:for-item="address" wx:key="{{index}}">
+    <view class='address-box' bindtap='returnOrder' data-addressid='{{address.id}}' wx:for="{{addressList}}" wx:for-item="address" wx:key="{{index}}">
       <view class='recipient'>
         <text class='name'>{{address.name}}</text>
         <text class='phone'>{{address.phone}}</text>

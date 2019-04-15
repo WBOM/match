@@ -51,9 +51,10 @@ Page({
     })
   },
   //跳转到赞助商商城
-  goMall:function(){
+  goMall:function(e){
+    console.log(e);
     wx.navigateTo({
-      url: '../mall/index?',
+      url: '../mall/index?sponsorId='+ e.currentTarget.dataset.sponsorid,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

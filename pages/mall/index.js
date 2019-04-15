@@ -5,49 +5,110 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // input默认是1
-    num: 1,
+    count: 1,
     // 使用data数据对象设置样式名
-    minusStatus: 'disabled'
+    minusStatus: 'disabled',
+    sponsorId:'',//赞助商id
+    sponsorInfo:'',//赞助商信息
+    commodityList:[],//商品列表
+    otherMatchList:[],
   },
-  /* 点击减号 */
-  bindMinus: function () {
-    var num = this.data.num;
-    // 如果大于1时，才可以减
-    if (num > 1) {
-      num--;
+  //获取赞助商信息
+  getSponsorInfo:function(){
+    var that=this;
+    wx.request({
+      url: 'http://test.tuolve.com/jingsai/web/api.php/Sponsor/spon_detail',
+      data: {
+        id:that.data.sponsorId
+      },
+      success: function(res) {
+        if(res.data.status==10001){
+          that.setData({
+            sponsorInfo: res.data.detail
+          })
+        }else{
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 1000,
+          })
+        }
+      }
+    })
+  },
+  //获取商品列表
+  getCommodityList:function(){
+    var that=this;
+    wx.request({
+      url: 'http://test.tuolve.com/jingsai/web/api.php/ShopGoods/lists',
+      data: {
+        business_id:that.data.sponsorId
+      },
+      success: function(res) {
+        if(res.data.status==10001){
+          that.setData({
+            commodityList: res.data.lists
+          })
+        }
+      }
+    })
+  },
+  /* 加数 */
+  addCount: function (e) {
+    var index = e.target.dataset.index;
+    console.log("刚刚您点击了加+");
+    var count = this.data.items[index].count;
+    // 商品总数量+1  
+    if (count < 10) {
+      this.data.items[index].count++;
     }
-    // 只有大于一件的时候，才能normal状态，否则disable状态
-    var minusStatus = num <= 1 ? 'disabled' : 'normal';
-    // 将数值与状态写回
+    // 将数值与状态写回  
     this.setData({
-      num: num,
-      minusStatus: minusStatus
+      items: this.data.items
     });
+    console.log("items:" + this.data.items);
   },
-  /* 点击加号 */
-  bindPlus: function () {
-    var num = this.data.num;
-    // 不作过多考虑自增1
-    num++;
-    // 只有大于一件的时候，才能normal状态，否则disable状态
-    var minusStatus = num < 1 ? 'disabled' : 'normal';
-    // 将数值与状态写回
+  /* 减数 */
+  delCount: function (e) {
+    var index = e.target.dataset.index;
+    console.log("刚刚您点击了加一");
+    var count = this.data.items[index].count;
+    // 商品总数量-1
+    if (count > 1) {
+      this.data.items[index].count--;
+    }
+    // 将数值与状态写回  
     this.setData({
-      num: num,
-      minusStatus: minusStatus
+      items: this.data.items
     });
-  },
-  /* 输入框事件 */
-  bindManual: function (e) {
-    var num = e.detail.value;
-    // 将数值与状态写回
-    this.setData({
-      num: num
-    });
+    console.log("items:" + this.data.items);
   },
   checkboxChange: function (e) {
     console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+  },
+  //获取他赞助的其他赛事
+  getOtherMatchList:function(){
+    var that=this;
+    wx.request({
+      url: 'http://test.tuolve.com/jingsai/web/api.php/Sponsor/spon_book',
+      data: {
+        id:that.sponsorId
+      },
+      success: function(res) {
+        console.log(res);
+        if(res.data.status==10001){
+          that.setData({
+            otherMatchList:res.data.detail
+          })
+        }else{
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 1000,
+          })
+        }
+      }
+    })
   },
   //跳转到结算订单确认页面
   goOrder:function(){
@@ -62,7 +123,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      sponsorId: options.sponsorId
+    })
+    this.getOtherMatchList();
   },
 
   /**

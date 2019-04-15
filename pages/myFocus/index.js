@@ -32,19 +32,53 @@ Page({
       }
     })
   },
+  //取消关注
+  goCancel:function(e){
+    var that=this;
+    wx.showModal({
+      title: '提示',
+      content: '确认取消关注吗？',
+      showCancel: true,
+      confirmColor: '#E51C23',
+      success: function(res) {
+        if(res.confirm){
+          wx.request({
+            url: 'http://test.tuolve.com/jingsai/web/api.php/User/Collection',
+            data: {
+              id: e.currenTaget.dataset.matchid
+            },
+            success: function (res) {
+              if(res.data.status==10002){
+                wx.showToast({
+                  title: '已取消关注',
+                  icon: 'success',
+                  duration: 1000,
+                })
+                that.onReady();
+              }
+            },
+          })
+        }else if(res.cancel){
+          console.log('用户点击取消')
+        }
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getAttentionList();
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.getAttentionList();
   },
 
   /**

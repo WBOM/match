@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    projectId:'',//选着项目id
+    projectId:'',//项目id
     price:'',//价格
     matchId:'',//赛事ID
     competitionList: ['4*100接力赛', '1000米竞赛', '10公里马拉松', '铁人三项'],
@@ -50,7 +50,7 @@ Page({
     let { name, phone, competition, lv, emergency, teamname } = e.detail.value;
     var warn = "";//弹框时提示的内容
     var flag = true;//判断信息输入是否完整
-    //判断的顺序依次是：姓名-手机号-地址-具体地址-预约日期-预约时间-开荒面积
+    var that=this;
     if (e.detail.value.name == "") {
       warn = "请填写您的姓名！";
     } else if (e.detail.value.phone == "") {
@@ -64,12 +64,12 @@ Page({
     } else if (e.detail.value.teamname == "") {
       warn = "请输入您的队名！";
     } else {
-      flag = false;//若必要信息都填写，则不用弹框，且页面可以进行跳转
-      var that = this;
+      flag = false,//若必要信息都填写，则不用弹框，且页面可以进行跳转
       wx.request({
         url: 'http://test.tuolve.com/jingsai/web/api.php/BookInfo/enroll',
         data: {
-          book_id:this.data.matchId,
+          book_id:that.data.matchId,
+          group_id:that.data.projectId,
           name: e.detail.value.name,
           phone:e.detail.value.phone,
           emergency_contact_mobile: e.detail.value.emergency,

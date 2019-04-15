@@ -3,27 +3,26 @@
   <view class='match-list'>
     <view class='match-box' wx:for="{{attentionList}}" wx:for-item="attention" wx:key="{{index}}">
       <view class='time'>
-        <text>{{attention.game_starttime}}</text>
+        <text>{{attention.info.game_starttime}}</text>
         <text>开始</text>
       </view>
       <view class='content'>
         <view class='photo'>
-          <image src='{{attention.img_orogin}}'></image>
+          <image src='{{attention.info.img_orogin}}'></image>
         </view>
         <view class='text'>
           <view>
-            <text class='title'>{{attention.title}}</text>
+            <text class='title'>{{attention.info.title}}</text>
           </view>
           <view class='address'>
-            <text>{{attention.address}}</text>
+            <text>{{attention.info.address}}</text>
           </view>
           <view class='project'>
             <view>
               <text>羽毛球赛 单打</text>
             </view>
             <view>
-              <button wx:if="{{true}}" class='has-been-attention'>已关注</button>
-              <button wx:if="{{false}}" class='attention'>关注</button>
+              <button bindtap='goCancel' data-matchid='{{attention.info.id}}' class='unsubscribe'>取消关注</button>
             </view>
           </view>
         </view>

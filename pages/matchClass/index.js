@@ -10,7 +10,8 @@ Page({
     raceType: [],
     matchLists:{},
     cateId:'',
-    tab:'-1'
+    tab:'-1',
+    noData:false,
   },
   //跳转到赛事详情
   goMatchDetails: function (e) {
@@ -26,7 +27,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    
+
     //获取赛事种类
     wx.request({
       url: 'http://test.tuolve.com/jingsai/web/api.php/BookCategory/lists',
@@ -44,44 +45,41 @@ Page({
         )
       }
     })
-    
+
   },
   //按种类查询赛事列表
   getTypeMatch:function(e){
     var that = this;
+    that.setData({
+      cateId:e.target.dataset.type
+    })
     call.request({
       url: 'http://test.tuolve.com/jingsai/web/api.php/BookInfo/lists',
       data: { 
-        cate_id: e.target.dataset.type
+        cate_id: that.data.cateId
       },
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
         if (typeof (res.data.lists) == "undefined") {
-          wx.showToast({
-            title: '暂无数据',
-            icon: 'none',
-            duration: 1000
-          }),
-          that.setData(
-            {
-              matchLists:{},
-              tab: e.target.dataset.type
-            }
-          )
+          that.setData({
+            matchLists:{},
+            noData:true,
+            tab: e.target.dataset.type
+          })
         }else{
-          that.setData(
-            {
-              matchLists: res.data.lists,
-              tab: e.target.dataset.type
-            }
-          )
+          that.setData({
+            noData: false,
+            matchLists: res.data.lists,
+            tab: e.target.dataset.type
+          })
         }
       }
     })
 
   },
+  //获取推荐分类
   goValue:function(){
     var that=this;
     that.setData({
@@ -98,14 +96,14 @@ Page({
       },
       success: function (res) {
         console.log('推荐' + res.data)
-        that.setData(
-          {
-            matchLists: res.data.lists
-          }
-        )
+        that.setData({
+          noData:false,
+          matchLists: res.data.lists
+        })
       }
     })
   },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

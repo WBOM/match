@@ -25,6 +25,9 @@
           <view class='price'>
             <text>￥169.00</text>
           </view>
+          <view>
+            <text>* 2</text>
+          </view>
         </view>
       </view>
     </view>

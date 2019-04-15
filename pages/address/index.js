@@ -51,7 +51,7 @@ Page({
     var prevPage = pages[pages.length - 2];  //上一个页面
     //直接调用上一个页面对象的setData()方法，把数据存到上一个页面中去
     prevPage.setData({
-      addressId:e.currentTarget.dataset.id
+      addressId: e.currentTarget.dataset.addressid
     });
     wx.navigateBack({
       delta: 1

@@ -5,12 +5,15 @@
     <view class='match-menu'>
       <view class='match-menu-list'>
         <text class="{{tab==-1?'on':''}}" bindtap='goValue'>推荐分类</text>
-        <text class="{{tab==type.id?'on':''}}" bindtap='getTypeMatch' wx:for="{{raceType}}" data-type='{{type.id}}' wx:key='index' wx:for-item="type">{{type.title}}</text>
+        <text class="{{tab==type.id?'on':''}}" bindtap='getTypeMatch' wx:for="{{raceType}}" data-type='{{type.id}}' wx:key='{{index}}' wx:for-item="type">{{type.title}}</text>
       </view>
     </view>
     <!--内容-->
     <view class='match-list'>
-      <view class='match-list-box' wx:for="{{matchLists}}" wx:for-item="matchList" data-matchid='{{matchList.id}}' bindtap='goMatchDetails'>
+      <view wx:if='{{noData}}' class='no-data'>
+        <text>暂无数据哦~</text>
+      </view>
+      <view class='match-list-box' wx:for="{{matchLists}}" wx:for-item="matchList" data-matchid='{{matchList.id}}' bindtap='goMatchDetails' wx:key='{{index}}'>
         <image src='{{matchList.img_thumb}}' mode="scaleToFill" lazy-load="true"></image>
         <text>{{matchList.title}}</text>
       </view>

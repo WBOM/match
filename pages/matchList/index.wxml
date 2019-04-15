@@ -30,12 +30,12 @@
   <view class='cover1' wx:if="{{box}}" bindtap='hideModal' catchtouchmove="move"></view>
   <!--内容-->
   <view class='main'>
-    <view class='main-box' wx:for="{{matchLists}}" wx:key='index' wx:for-item="matchList">
-      <image src='{{matchList.img_orogin}}' mode='scaleToFill' lazy-load="true" bindtap='goMatchDetails' data-matchid='{{matchList.id}}'></image>
+    <view class='main-box' wx:for="{{matchLists}}" wx:key='index' wx:for-item="matchList" bindtap='goMatchDetails' data-matchid='{{matchList.id}}'>
+      <image src='{{matchList.img_orogin}}' mode='scaleToFill' lazy-load="true" ></image>
       <view class='main-box-content'>
-        <text class='title' bindtap='goMatchDetails' data-matchid='{{matchList.id}}'>{{matchList.title}}</text>
-        <text class='time' bindtap='goMatchDetails' data-matchid='{{matchList.id}}'>{{matchList.endtime}}</text>
-        <text class='place' bindtap='goMatchDetails' data-matchid='{{matchList.id}}'>{{matchList.weizhi}}</text>
+        <text class='title'>{{matchList.title}}</text>
+        <text class='time'>{{matchList.endtime}}</text>
+        <text class='place'>{{matchList.weizhi}}</text>
         <view class='main-box-content-bottom'>
           <!--费用-->
           <view class='cost'>
@@ -46,7 +46,7 @@
           <view class='state'>
             <!--二者只能有一-->
             <text wx:if="{{matchList.id==matchId}}">报名中...</text>
-            <button wx:if="{{matchList.id!=matchId}}" data-matchid='{{matchList.id}}' bindtap='selectEvent' >一键报名</button>
+            <button wx:if="{{matchList.id!=matchId}}" data-matchid='{{matchList.id}}' catchtap='selectEvent' >一键报名</button>
           </view>
         </view>
       </view>

@@ -238,3 +238,69 @@
   font-size: 0.88rem;
   background: #ffffff;
 }
+/*************************/
+/*遮罩*/
+.cover{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 4;
+}
+/*弹框*/
+.modal{
+  position: fixed;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  top: 50%;
+  left: 50%;
+  margin-left: -7.5rem;
+  margin-top: -3rem;
+  width: 15rem;
+  height: 6rem;
+  z-index: 10;
+  background:#ffffff;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem rgb(165, 165, 165);
+  padding: 0;
+}
+.modal view{
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+}
+.modal .text{
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.modal .text text{ 
+  font-size: 0.7rem;
+}
+.modal .text input{
+  flex: 2;
+  border-bottom: 0.06rem #BBBBBB solid;
+}
+.modal .button{
+  margin: 0;
+  margin-top: 0.2rem;
+  padding: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.modal .button button{
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+.modal .confirm{
+  background: #E51C23;
+  color: #ffffff;
+}

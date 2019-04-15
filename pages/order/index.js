@@ -37,22 +37,30 @@ Page({
     wx.request({
       url: 'http://test.tuolve.com/jingsai/web/api.php/UserAddress/lists',
       data: {
-        type:type,//默认地址
-        user_id:'1',//用户自己的ID
+        type: type,//默认地址
+        user_id:1, //用户自己的ID
         id:that.data.addressId
       },
       success: function(res) {
         console.log(res);
-      },
-      fail: function(res) {},
-      complete: function(res) {},
+        if(res.data.status){
+          that.setData({
+            address:res.data.lists
+          })
+        }else{
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 1000,
+          })
+        }
+      }
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
   },
 
   /**

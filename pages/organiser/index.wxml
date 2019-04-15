@@ -22,9 +22,9 @@
         <form bindsubmit="formSubmit" bindreset="formReset">
           <view class="section">
             <view class="section-title">小组赛</view>
-            <picker name="group" bindchange="bindGroupListChange" value="{{groupIndex}}" range="{{groupList}}">
+            <picker name="group" data-group='{{groupList[groupIndex].group_name}}' bindchange="bindGroupListChange" value="{{groupList[groupIndex].group_name}}" range="{{groupList}}" range-key="{{'group_name'}}">
               <view class="picker">
-                  {{groupList[groupIndex]}}
+                  {{groupList[groupIndex].group_name}}
               </view>
               <icon class='triangle'></icon>
             </picker>
@@ -42,7 +42,7 @@
             </picker>
           </view>
           <view class='button'>
-            <button class='invite'>邀请加入该组</button>
+            <button class='invite' bindtap="goInvite">邀请加入该组</button>
             <button class='submit' form-type='submit'>确定</button>
           </view>
         </form>
@@ -98,26 +98,15 @@
     </view>
     <!--报名列表-->
     <view class = "{{currentTab == 1 ? 'show':'hidden'}}" >
-      <view class='cover' wx:if="{{phoneShow}}" bindtap='cancel'></view>
-      <view class='modal' wx:if="{{phoneShow}}">
-      <form bindsubmit="confirmSubmit">
-        <view class='text'>
-          <text>请输入手机号：</text>
-          <input name='phone' type='number'/>
-        </view>
-        <view class='button'>
-          <button bindtap='cancel'>取消</button>
-          <button form-type='submit' class='confirm'>确认</button>
-        </view>
-      </form>
-      </view>
+
       <scroll-view >
-        <view class='signUpList'>
+        <view class='signUpList'>  
           <view class='player-box' wx:for="{{registeredList}}" wx:for-item="registered" wx:key="{{index}}">
+            <view class='cover' wx:if="{{end}}"></view>
             <view class='header'>
               <text class='head-1'>第一名</text>
               <text class='head-2'>90分</text>
-              <text class='head-3' bindtap="goInvite">+邀请加入 |</text>
+              <button class='head-3' open-type="share" bindtap="goInvite">+邀请加入 </button> 
               <text class='head-4' data-peopleid='{{registered.id}}' bindtap='goDelete'>删除</text>
             </view>
             <view class='name'>
@@ -129,7 +118,8 @@
             </view>
           </view>
         </view>
-        <button class='end'>报名结束</button>
+        <button class='end' wx:if="{{end}}" disabled >报名已结束</button>
+        <button class='end' wx:else bindtap='goEnd'>报名结束</button>
         <form bindsubmit='goGrouping'>
           <view class='knockout-box'>
             <text class='title'>淘汰赛</text>
@@ -169,6 +159,7 @@
     </view>
     <!--比赛结果-->
     <view class = "{{currentTab == 3 ? 'show':'hidden'}}">
+      <form>
       <scroll-view>
         <view class='rank-list'>
           <view class='rank-box'>
@@ -179,7 +170,7 @@
             <image class='add-player' src="{{playerPhoto}}" bindtap='addPlayerPhoto'mode="aspectFill"></image>
             <view class='player-information'>
               <text>yyy</text>
-              <input placeholder=" 请输入内容"></input>
+              <input neme='' placeholder=" 请输入内容"></input>
             </view>
           </view>
           <view class='rank-box'>
@@ -245,8 +236,9 @@
             <textarea bindblur="bindTextAreaBlur" placeholder="说点什么" auto-height />
           </view>
         </view>
-        <button class='release'>发布</button>
+        <button form-type='submit' class='release'>发布</button>
       </scroll-view>
+      </form>
     </view>
   </view>
 </view>

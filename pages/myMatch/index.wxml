@@ -178,7 +178,7 @@
               </view>
             </view>
             <view class='transfer'>
-              <button bindtap='goTransfer' disabled="{{false}}">转移</button>
+              <button catchtap='goTransfer' disabled="{{false}}">转移</button>
             </view>
           </view>
         </view>

@@ -2,11 +2,11 @@
   <view class='header'>
     <view>
       <text>总参与人数：{{basicList.team_zrs}}人</text>
-      <button>邀请加入比赛</button>
+      <button data-invitationtype='1' open-type="share" bindtap='goInvite'>邀请加入比赛</button>
     </view>
     <view>
-      <text>组别:A组 （共3组）</text>
-      <button>邀请组队比赛</button>
+      <text>组别:{{group}}（共{{array.length}}组）</text>
+      <button data-invitationtype='2' open-type="share" bindtap='goInvite'>邀请组队比赛</button>
     </view>
     <view>
       <text>出线人数：{{basicList.cxrs}}人</text>
@@ -14,9 +14,22 @@
     </view>
     <view>
       <text>场地：{{basicList.weizhi}}</text>
-      <button>签到</button>
+      <button bindtap='goCheckIn'>签到</button>
     </view>
   </view>
+  <view class='cover' wx:if="{{phoneShow}}" bindtap='cancel'></view>
+    <view class='modal' wx:if="{{phoneShow}}">
+      <form bindsubmit="confirmSubmit">
+        <view class='text'>
+          <text>请输入手机号：</text>
+          <input name='phone' type='number'/>
+        </view>
+        <view class='button'>
+          <button bindtap='cancel'>取消</button>
+          <button form-type='submit' class='confirm'>确认</button>
+        </view>
+      </form>
+    </view>
   <view class='time'>
     <text>下一场比赛时间：</text>
     <text>2019年3月27日</text>
@@ -24,9 +37,9 @@
   <view class='main'>
     <view class="section">
       <view class="section-title">小组赛：</view>
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="{{'group_name'}}">
         <view class="picker">
-            {{array[index]}}
+            {{array[index].group_name}}
         </view>
         <icon class='triangle'></icon>
       </picker>
@@ -113,6 +126,7 @@
         </view>
       </view>
     </view>
+    
     <view class="rank {{currentTab == 1 ? 'show':'hidden'}}">
       <!--rank-->
       <view class='rank-list'>
@@ -197,5 +211,6 @@
         </view>
       </view>
     </view>
+
   </view>
 </view>

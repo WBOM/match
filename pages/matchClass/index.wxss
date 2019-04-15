@@ -50,6 +50,17 @@
   overflow:hidden;
   box-sizing: border-box;
 }
+.no-data{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+}
+.no-data text{
+  margin-top: -3rem;
+}
 .match-list-box{
   display: flex;
   flex-flow: column wrap;

@@ -8,7 +8,7 @@ Page({
   data: {
     matchId:'',
     projectId:'',//项目ID
-    groupList: ['A组', 'B组', 'C组', 'D组'],
+    groupList: [{group_name: 'A组'}, {group_name: 'B组'}, {group_name: 'C组'}, {group_name: 'D组'}],
     siteList: ['陆地', '海洋', '天空'],
     refereeList: ['1号', '2号', '3号'],//裁判列表
     groupIndex: 0,
@@ -25,12 +25,15 @@ Page({
     registeredList:[],//已报名列表
     allRefereeList:[],//所有申请裁判列表
     refereeList:[],//已通过裁判列表
-    phoneShow:false,
     signInNumber:0,//签到人数
     groupingType: [
       { index: 2, value: '不混抽分组', checked: 'true' },
       { index:1,value:'混抽分组'},
-      { index:3,value:'团体随机分组'}],
+      { index:3,value:'团体随机分组'}
+    ],
+    group:'',
+    status:'',//报名状态
+    end:false,  
   },
   // 点击切换
   clickTab: function (e) {
@@ -45,15 +48,18 @@ Page({
   },
   //小组列表
   bindGroupListChange: function (e) {
-    this.setData({
+    var that=this;
+    that.setData({
       groupIndex: e.detail.value,
+      group: that.data.groupList[e.detail.value].group_name
     })
-    console.log('picker1发送选择改变，携带值为', e.detail.value)
+    console.log(that.data.group);
   },
   //场地
   bindSiteListChange: function (e) {
     this.setData({
       siteIndex: e.detail.value,
+      
     })
     console.log('picker2发送选择改变，携带值为', e.detail.value)
   },
@@ -71,7 +77,57 @@ Page({
   formReset() {
     console.log('form发生了reset事件')
   },
+  
+  //获取分组列表
+  getGroupList:function(){
+    var that=this;
+    wx.request({
+      url: 'http://test.tuolve.com/jingsai/web/api.php/Borrow/get_group',
+      data: {
+        book_id:that.data.matchId,
+        group_id:that.data.projectId
+      },
+      success: function(res) {
+        console.log(res)
+        if(res.data.status==10001){
+          that.setData({
+            groupList:res.data.lists,
+            group: res.data.lists[0].group_name
+          })
+        }else{
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 1000,
+          })
+        }
+      }
+    })
+  },
   /***************************/
+  //获取报名状态
+  getStatus:function(){
+    var that=this;
+    wx.request({
+      url: 'http://test.tuolve.com/jingsai/web/api.php/BookLists/lists',
+      data: {
+        book_id: that.data.matchId,
+        group_id: that.data.projectId
+      },
+      success: function(res) {
+        console.log(res);
+        if (res.data.lists[0].is_over==1){
+          that.setData({
+            end:false
+          })
+        } else if (res.data.lists[0].is_over == 2){
+          that.setData({
+            end: true
+          })
+        }
+      }
+    })
+  },
   //已报名列表
   getRegisteredList:function(){
     var that=this;
@@ -98,65 +154,48 @@ Page({
     })
   },
   //点击邀请加入
-  goInvite:function(){
-    this.setData({
-      phoneShow:true
-    })
-  },
-  //点击遮罩层
-  cancel:function(){
-    this.setData({
-      phoneShow: false
-    })
-  },
-  //确认邀请
-  confirmSubmit:function(e){
-    var warn = "";//弹框时提示的内容
-    var flag = true;//判断信息输入是否完整
+  goInvite:function(e){
     var that=this;
+    wx.showShareMenu({
+      withShareTicket: true
+    })
     console.log(e);
-    if (e.detail.value.phone == "") {
-      warn = "请填写您的手机号！";
-    } else if (!(/^1(3|4|5|7|8)\d{9}$/.test(e.detail.value.phone))) {
-      warn = "手机号码格式不正确！";
-    } else{
-      flag = false;//若必要信息都填写，则不用弹框，且页面可以进行跳转
-      wx.request({
-        url: 'http://test.tuolve.com/jingsai/web/api.php/Borrow/yaoqing',
-        data: {
-          book_id: that.data.matchId,
-          group_id: that.data.projectId,
-          group: e.currentTarget.dataset.group,//组名//还需一个手机号
-          phone: e.detail.value.phone,
-        },
-        success: function (res) {
-          if(res.data.status==10001){
-            wx.showToast({
-              title: '邀请成功！',
-              icon: 'success',
-              duration: 1000,
-            })
-            that.setData({
-              phoneShow: false
-            })
-          }else{
-            wx.showToast({
-              title: res.data.msg,
-              icon: 'none',
-              duration: 1000,
+  },
+  /**
+  * 用户点击分享
+  */
+  onShareAppMessage: function (ops) {
+    var that=this;
+    if (ops.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(ops.target)
+    }
+    return {
+      title: '我邀请了你参加一场比赛，快快加入吧！',
+      path: 'pages/matchDetails/index?matchId='+ that.data.matchId,
+      imageUrl: 'pages/image/index.png',
+      success: function (res) {
+        if (res.errMsg == 'shareAppMessage:ok') {//判断分享是否成功
+          if (res.shareTickets == undefined) {//判断分享结果是否有群信息
+            //分享到好友操作...
+          } else {
+            //分享到群操作...
+            var shareTicket = res.shareTickets[0];
+            wx.getShareInfo({
+              shareTicket: shareTicket,
+              success: function (e) {
+                //当前群相关信息
+                var encryptedData = e.encryptedData;
+                var iv = e.iv;
+              }
             })
           }
         }
-      })
-    }
-    //如果信息填写不完整，弹出输入框
-    if (flag == true) {
-      wx.showModal({
-        title: '提示',
-        content: warn,
-        confirmColor: '#E51C23',
-        showCancel: false
-      })
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("转发失败:" + JSON.stringify(res));
+      }
     }
   },
   //删除已报名人员
@@ -239,6 +278,44 @@ Page({
       },
     })
   },
+  ///报名结束
+  goEnd:function(){
+    var that=this;
+    wx.showModal({
+      title: '提示·',
+      content: '确认结束报名？',
+      showCancel: true,
+      confirmColor: '#E51C23',
+      success: function(res) {
+        if(res.confirm){
+          call.request({
+            url: 'http://test.tuolve.com/jingsai/web/api.php/BookInfo/book_over',
+            data: {
+              book_id: that.data.matchId,
+              group_id: that.data.projectId,
+            },
+            success: function (res) {
+              if (res.data.status == 10001) {
+                wx.showToast({
+                  title: '操作成功',
+                  icon: 'success',
+                  duration: 1000,
+                })
+              }else{
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'none',
+                  duration: 1000,
+                })
+              }
+            }
+          })
+        } else if(res.cancel){
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   //获取已签到人数
   getSignInNumber:function(){
     var that=this;
@@ -302,7 +379,7 @@ Page({
       url: 'http://test.tuolve.com/jingsai/web/api.php/BookInfo/referee_on_lists',
       data: {
         book_id:that.data.matchId,
-        //group_id:that.data.projectId,
+        group_id:that.data.projectId,
       },
       success: function(res) {
         if(res.data.status==10001){
@@ -311,7 +388,7 @@ Page({
           })
         }else{
           wx.showToast({
-            title: re.data.msg,
+            title: res.data.msg,
             icon: 'none',
             duration: 1000,
           })
@@ -326,7 +403,7 @@ Page({
       url: 'http://test.tuolve.com/jingsai/web/api.php/BookInfo/referee_lists',
       data: {
         book_id:that.data.matchId,
-        //group_id:that.data.projectId,
+        group_id:that.data.projectId,
       },
       success: function(res) {
         if(res.data.status==10001){
@@ -475,6 +552,7 @@ Page({
       projectId:options.projectId,
     })
     this.getSignInNumber();
+    this.getGroupList();
   },
 
   /**
@@ -484,6 +562,7 @@ Page({
     this.getAllRefereeList();
     this.getRefereeList();
     this.getRegisteredList();
+    this.getStatus();
   },
 
   /**
